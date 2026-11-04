@@ -1,0 +1,1153 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>The Light Trade</title>
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap");
+/* Architectural hand-lettering for the game title and section headings. */
+h1,h2{font-family:"Architects Daughter","Comic Sans MS",cursive;letter-spacing:.035em;font-weight:400}
+
+:root{font-family:system-ui,-apple-system,Segoe UI,sans-serif;color:#182536;background:#f4f6f9}*{box-sizing:border-box}body{margin:0}.wrap{max-width:1060px;margin:auto;padding:24px}header{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}h1{margin:0;font-size:2.55rem}h2{font-size:1.1rem;margin:0 0 12px}.muted{color:#617083}.panel{background:white;border:1px solid #dce2e9;border-radius:14px;padding:20px;margin-top:18px;box-shadow:0 2px 10px #15283a08}.grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:12px}.tile{border:1px solid #dce2e9;border-radius:12px;padding:16px;text-align:center;background:#fafbfc}.price{font-size:2.3rem;font-weight:750;margin:7px 0}.delta{font-size:.9rem;font-weight:650}.market-average{margin-top:9px;font-size:.78rem;color:#4b5b6b}.market-average strong{display:block;font-size:.95rem;color:#182536}.up{color:#16764d}.down{color:#b63d40}.flat{color:#718093}button{cursor:pointer;border:0;border-radius:9px;padding:10px 14px;background:#225d94;color:white;font:inherit;font-weight:600}button:hover{filter:brightness(.94)}button:disabled{background:#e8ebef;color:#a5adb7;cursor:not-allowed;filter:none;opacity:.48;box-shadow:none}button:disabled:hover{filter:none}.popup .choice-buttons button:disabled{background:#edf0f4;color:#aeb7c2;opacity:.42;border:1px solid #dce2e9}.popup .choice-buttons button:not(:disabled){opacity:1}button:focus-visible{outline:3px solid #efb542;outline-offset:2px}button.secondary{background:#e7edf4;color:#203750}.controls{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}.total{display:flex;justify-content:space-between;align-items:center;margin-top:18px;padding:16px;border-radius:10px;background:#edf4fb}.total strong{font-size:2rem;font-variant-numeric:tabular-nums}.history{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:500px}th,td{padding:10px;text-align:center;border-bottom:1px solid #e6eaf0}th:first-child,td:first-child{text-align:left}.note{font-size:.9rem;line-height:1.55}.tag{font-size:.8rem;border-radius:999px;background:#e7edf4;padding:5px 10px}.cardgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}.carditem{border:1px solid #dce2e9;border-radius:12px;padding:13px;background:#fafbfc;display:flex;flex-direction:column;min-height:235px}.carditem .cardtop{min-height:3.3em;align-items:flex-start}.carditem .cardmeta{flex:1}.carditem .cardvalue{margin-top:12px;padding-top:8px;border-top:1px solid #e6eaf0}.carditem button{margin-top:12px}.stack{display:flex;height:13px;overflow:hidden;border-radius:6px;margin:10px 0}.stack span{height:100%}.cardmeta{font-size:.81rem;color:#617083;line-height:1.6}.cardtop{display:flex;justify-content:space-between;gap:8px;align-items:center}.carditem button{width:100%;margin-top:12px}.available-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.available-hand{border:1px solid #dce2e9;border-radius:12px;padding:14px;background:#fafbfc;text-align:center}.available-hand .cardback{margin:12px auto}.deckarea{display:flex;align-items:center;gap:16px;flex-wrap:wrap}.cardback{width:82px;height:112px;border:5px solid #fff;outline:1px solid #aebed1;border-radius:10px;background:repeating-linear-gradient(45deg,#275a89 0,#275a89 7px,#3975a7 7px,#3975a7 14px);display:grid;place-items:center;color:white;font-size:2rem;box-shadow:0 2px 6px #0002}.chancecard{border:2px solid #111;background:#fffdfb;display:flex;flex-direction:column;justify-content:space-between;min-height:235px}.chancecard h3{font-size:1.13rem;margin:0 0 9px;color:#111}.chancecard p{font-size:.93rem;margin:0;color:#394453}.chancecard button{background:#811e27;color:white}.chancecard button:disabled{background:#b5b5b5;color:white}.popup-backdrop{position:fixed;inset:0;background:#0009;display:grid;place-items:center;padding:20px;z-index:10}.popup-backdrop[hidden]{display:none}.popup{background:#fff;border-radius:14px;padding:26px;max-width:520px;width:100%;box-shadow:0 12px 35px #0004;text-align:center}.popup h2{font-size:1.35rem}.popup-result{font-size:1.55rem;font-weight:750;text-transform:capitalize;margin:20px 0;color:#811e27}.popup button{background:#811e27}.popup button.secondary{background:#e7edf4;color:#203750}.cash-detail{max-height:60vh;overflow-y:auto}.rank-table{width:100%;min-width:0;margin:14px 0 20px}.rank-table th,.rank-table td{text-align:left;padding:10px 8px}.rank-table td:last-child,.rank-table th:last-child{text-align:right}.rank-winner{background:#f0f7ed;font-weight:750}.rank-table tr.resold-row{background:#fff1c2}.rank-table tr.resold-row td{font-weight:650}.choice-buttons[hidden]{display:none!important}.choice-buttons{display:grid;gap:9px;margin-top:18px}.message{min-height:1.5em;font-size:.92rem;color:#305b7c}@media(max-width:600px){.wrap{padding:12px}.panel{padding:14px}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.tile{padding:10px 4px}.price{font-size:1.8rem}.cardgrid{grid-template-columns:repeat(2,minmax(0,1fr))}.carditem{padding:10px;min-height:245px}.available-grid{grid-template-columns:1fr}.total strong{font-size:1.6rem}}
+
+@media(min-width:601px) and (max-width:1050px){.grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.history-charts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.history-chart{border:1px solid #dce2e9;border-radius:12px;padding:12px;min-width:0;background:#fafbfc}.history-chart h3{font-size:.95rem;margin:0 0 8px}.history-chart svg{width:100%;height:auto;display:block}.history-chart .axis{font-size:11px;fill:#64748b}.history-chart .gridline{stroke:#dce2e9;stroke-width:1}.history-chart .price-line{fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}@media(max-width:600px){.history-charts{grid-template-columns:1fr}}
+/* Two-second visual confirmation for the card received in a swap. */
+.carditem.swap-highlight{position:relative;z-index:1;animation:swap-reveal 2s ease-in-out both;outline:3px solid #d59b19;outline-offset:2px;}
+@keyframes swap-reveal{0%{background:#fff0a8;box-shadow:0 0 0 0 #e4b32d99;transform:scale(.96)}20%{background:#fff0a8;box-shadow:0 0 0 7px #e4b32d55;transform:scale(1.045)}75%{background:#fff6c9;box-shadow:0 0 0 5px #e4b32d22;transform:scale(1.02)}100%{background:#fafbfc;box-shadow:none;transform:scale(1);outline-color:transparent}}
+@media(prefers-reduced-motion:reduce){.carditem.swap-highlight{animation:none;background:#fff0a8;outline-color:#d59b19}}
+.market-sparkline{display:block;width:100%;height:66px;margin-top:auto;overflow:visible;flex-shrink:0}.tile{min-width:0}.tile>div:first-child{min-height:2.7em;font-size:.85rem;font-weight:650}.tile .price{font-size:clamp(1.2rem,2vw,2rem)}
+
+/* Consistent vertical rhythm for public market price tiles */
+#market .tile{display:flex;flex-direction:column;align-items:stretch;gap:9px;min-height:205px;padding:13px 9px}
+#market .tile>div:first-child{min-height:2.7em;display:flex;align-items:center;justify-content:center;line-height:1.3}
+#market .tile .price{margin:0;min-height:1.5em;display:flex;align-items:baseline;justify-content:center;white-space:nowrap}
+#market .tile .market-average{margin:0;min-height:2.7em;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;line-height:1.3}
+#market .tile .market-average strong{display:block}
+#market .tile .market-sparkline{margin-top:auto}
+@media(max-width:600px){#market .tile{min-height:195px;padding:11px 7px}}
+
+/* Hand-sketched, hatched material composition, matching the other Rough.js surfaces. */
+.hand-detail .rough-material-chart{position:relative;height:30px;margin:8px 0 10px;overflow:visible;border-radius:0;flex-shrink:0}
+.rough-material-chart svg{display:block;width:100%;height:100%;overflow:visible}
+.rough-material-chart.rough-ready > span{display:none}
+/* Master-detail private hand layout */
+.hand-layout{display:grid;grid-template-columns:minmax(245px,36%) minmax(0,1fr);gap:18px;align-items:start}
+.hand-selector{display:flex;flex-direction:column;gap:8px}
+.hand-select{width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;text-align:left;background:#eef2f7;color:#243448;border:2px solid #d9e1eb;border-radius:10px;padding:11px 12px;min-height:54px}
+.hand-select:hover{background:#e3eaf3;filter:none}
+.hand-select[aria-pressed="true"]{background:#225d94;color:#fff;border-color:#153e68;box-shadow:0 0 0 3px #a7c9e7}
+.hand-select .select-name{min-width:0;line-height:1.25;font-size:.92rem}
+.hand-select .select-value{white-space:nowrap;font-variant-numeric:tabular-nums;font-size:.91rem;font-weight:750}
+.hand-detail{border:1px solid #dce2e9;background:#fafbfc;border-radius:12px;padding:22px;min-height:360px;display:flex;flex-direction:column;gap:13px}
+.hand-detail .cardtop{font-size:1.18rem;align-items:start}
+.hand-detail .stack{height:19px;margin:3px 0}
+.hand-detail .cardmeta{font-size:.94rem;line-height:1.9;flex:1}
+.hand-detail .cardvalue{border-top:1px solid #dce2e9;padding-top:13px;font-size:1.3rem}
+.hand-detail .detail-action{align-self:flex-start;min-width:130px}
+.hand-chance{margin-top:5px;background:#811e27;color:#fff;border-color:#811e27;justify-content:center}
+.hand-chance:hover{background:#6b1820;color:#fff}
+.hand-chance[aria-pressed="true"]{background:#811e27;border-color:#511017;box-shadow:0 0 0 3px #e6a4aa}
+@media(max-width:700px){.hand-layout{grid-template-columns:1fr;gap:12px}.hand-selector{gap:6px}.hand-select{min-height:46px}.hand-detail{min-height:290px;padding:15px}}
+
+.total-actions{display:flex;align-items:center;gap:16px;flex-wrap:wrap;justify-content:flex-end}
+.total-actions .cash-out-action{background:#811e27;color:#fff;white-space:nowrap}
+.total-actions .cash-out-action:hover{background:#6b1820}
+@media(max-width:600px){.total{gap:12px;flex-wrap:wrap}.total-actions{width:100%;justify-content:space-between}}
+/* Header status pills and highlighted last-play panel */
+.header-pills{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.last-play{margin-top:14px;padding:13px 16px;border:1px solid #b7d2e9;border-left:5px solid #225d94;border-radius:10px;background:#edf4fb}
+.last-play-label{font-size:.78rem;font-weight:750;letter-spacing:.025em;color:#225d94;margin-bottom:4px}
+.last-play .message{margin:0;min-height:0;line-height:1.45;color:#243e56}
+
+/* Side-by-side dashboard on wide displays; stacked on smaller screens. */
+@media(min-width:1250px){
+  .wrap{max-width:1640px}
+  .game-columns{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,0.9fr);gap:20px;align-items:start}
+  .game-columns>.market-region{min-width:0;margin-top:18px}
+  #market.grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .hand-layout{grid-template-columns:minmax(180px,42%) minmax(0,1fr);gap:12px}
+  .hand-select{gap:6px;padding:10px 8px}
+  .hand-select .select-name{font-size:.84rem}
+  .hand-select .select-value{font-size:.83rem}
+  .hand-detail{padding:16px}
+}
+@media(min-width:1550px){#market.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+/* Compact market tiles when the two dashboard panels are side by side. */
+@media(min-width:1250px){
+  .game-columns{grid-template-columns:minmax(0,1.18fr) minmax(0,0.82fr)}
+  #market.grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+  #market .tile{min-height:154px;padding:9px 7px;gap:4px;border-radius:10px}
+  #market .tile>div:first-child{min-height:2.4em;font-size:.76rem;line-height:1.2}
+  #market .tile .price{font-size:clamp(1.08rem,1.45vw,1.45rem);min-height:1.3em}
+  #market .tile .market-average{font-size:.7rem;min-height:2.35em;gap:0;line-height:1.2}
+  #market .tile .market-average strong{font-size:.82rem}
+  #market .tile .market-sparkline{height:43px}
+}
+
+/* Opening splash screen */
+.splash-screen{position:fixed;inset:0;z-index:10000;display:flex;align-items:center;justify-content:center;padding:24px;background:linear-gradient(145deg,#101e35,#203b60 60%,#152740);color:#fff;text-align:center}
+.splash-screen[hidden]{display:none!important}
+.splash-content{width:min(100%,460px);padding:44px 30px;border:1px solid rgba(255,255,255,.25);border-radius:22px;background:rgba(255,255,255,.07);box-shadow:0 20px 60px rgba(0,0,0,.24)}
+.splash-content h1{font-size:clamp(3.15rem,10.5vw,5.25rem);line-height:1.1;margin:0 0 22px;color:#fff}
+.splash-credit{font-size:1rem;letter-spacing:.07em;margin:0 0 32px;color:#dce8f7}
+.splash-credit strong{display:block;font-size:1.4rem;letter-spacing:.02em;margin-top:8px;color:#fff}
+#startGame{background:#a32239;color:#fff;border:0;border-radius:10px;padding:14px 38px;font-size:1.1rem;font-weight:700;cursor:pointer;min-width:170px}
+#startGame:hover{background:#bd2c48}
+#startGame:focus-visible{outline:3px solid #fff;outline-offset:4px}
+
+/* Rough.js hand-drawn surfaces: the SVG strokes are the only visible frames. */
+.panel,.tile,.hand-select,.hand-detail,.total,.last-play,.popup,.splash-content,button,.tag{position:relative;isolation:isolate}
+.rough-outline{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:3;overflow:visible}
+button .rough-outline,.hand-select .rough-outline{z-index:1}
+button:disabled .rough-outline{opacity:.35}
+.hand-select[aria-pressed="true"] .rough-outline{filter:drop-shadow(0 0 2px #fff8)}
+/* Small, stable hand-placed offsets: never affect document flow. */
+.panel,.tile,.hand-select,.hand-detail,.total,.last-play,.popup,.splash-content,button,.tag{
+  transform:translate(var(--jitter-x,0px),var(--jitter-y,0px)) rotate(var(--jitter-angle,0deg));
+  transform-origin:center center;
+}
+/* Suppress native rounded rectangles and borders; Rough.js provides the hatch fills. */
+.panel,.tile,.hand-select,.hand-detail,.total,.last-play,.popup,.splash-content,button,.tag{
+  border-color:transparent!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+  background:transparent!important;
+}
+/* Modal dialogs use an opaque solid surface; their sketch outlines remain. */
+.popup{background:#fffdfb!important}
+/* Keep lettering legible on transparent, sketch-hatched controls. */
+button,.hand-select,.hand-select[aria-pressed="true"],.hand-chance,.cash-out-action,.popup button,#startGame{color:#182536!important}
+button:disabled{color:#9ca3af!important;opacity:.52}
+.splash-content{color:#fff}
+/* Dark sage lettering contrasts with the pale sage Rough.js hatching. */
+.chancecard button:not(:disabled),.hand-chance:not(:disabled),.cash-out-action:not(:disabled),
+.popup button:not(.secondary):not(:disabled),#startGame:not(:disabled){color:#43583e!important}
+.splash-content #startGame{color:#43583e!important}
+.rough-outline{z-index:0!important}
+/* Text labels always paint above the Rough.js hatch layer. */
+button > .rough-button-label{position:relative;z-index:2;pointer-events:none}
+.panel > :not(.rough-outline),.tile > :not(.rough-outline),.hand-select > :not(.rough-outline),.hand-detail > :not(.rough-outline),.total > :not(.rough-outline),.last-play > :not(.rough-outline),.popup > :not(.rough-outline),.splash-content > :not(.rough-outline),button > :not(.rough-outline),.tag > :not(.rough-outline){position:relative;z-index:1}
+button:focus-visible,.hand-select:focus-visible{outline:3px solid #efb542;outline-offset:3px}
+@media(prefers-reduced-motion:reduce){.rough-outline{transition:none}}
+/* Keep the hand contents and heading, but remove the surrounding panel and its Rough.js frame. */
+.hand-unboxed{min-width:0;margin-top:18px;padding:20px 0;background:transparent;border:0;box-shadow:none}
+@media(max-width:600px){.hand-unboxed{padding:14px 0}}
+/* Warm drawing-paper background and top-aligned header status labels. */
+html,body{background:#FFF7DA!important}
+.header-pills{align-self:flex-start;align-items:flex-start}
+.header-pills .tag{display:inline-flex;align-items:flex-start;justify-content:center;line-height:1.15;padding-top:4px;padding-bottom:9px}
+/* White lettering on enabled action buttons, painted above hatch overlays. */
+.hand-chance:not(:disabled),.cash-out-action:not(:disabled),#startGame:not(:disabled),
+.detail-action:not(:disabled),.popup button:not(.secondary):not(:disabled),
+.splash-content #startGame:not(:disabled){color:#fff!important}
+/* Deep forest green text stays readable over pale sage hatching. */
+.hand-chance:not(:disabled),.cash-out-action:not(:disabled),#startGame:not(:disabled),
+.detail-action:not(:disabled),.popup button:not(.secondary):not(:disabled),
+.splash-content #startGame:not(:disabled){color:#243F2B!important}
+/* Soft, offset shadow follows the hand-drawn sage outlines and hatch strokes. */
+.hand-chance:not(:disabled) > svg.rough-outline,
+.cash-out-action:not(:disabled) > svg.rough-outline,
+#startGame:not(:disabled) > svg.rough-outline,
+.detail-action:not(:disabled) > svg.rough-outline,
+.popup button:not(.secondary):not(:disabled) > svg.rough-outline{
+  filter:drop-shadow(2px 3px 2px rgba(43,58,40,.24));
+}
+/* Increase section and popup subtitles by 50%, matching the title enlargement. */
+h2{font-size:1.65rem}
+.popup h2{font-size:2.025rem}
+/* V86: bright chartreuse splash palette, scoped to the opening screen. */
+.splash-screen{background:#F4FF0F!important;color:#203329!important}
+.splash-content{background:#fffde8!important;color:#203329!important}
+.splash-content h1{color:#203329!important;text-shadow:none}
+.splash-credit{color:#354d38!important}
+.splash-credit strong{color:#203329!important}
+.splash-content #startGame:not(:disabled){color:#203329!important}
+#startGame:focus-visible{outline-color:#203329}
+/* V87: remove the splash content box, keeping its centered title and start control. */
+.splash-content{background:transparent!important;border:0!important;box-shadow:none!important;border-radius:0!important;padding:44px 20px!important}
+.splash-content > svg.rough-outline{display:none!important}
+
+/* V88: two-column, borderless credits anchored at bottom of splash screen. */
+.splash-screen{position:fixed}
+.splash-footer{position:absolute;bottom:clamp(18px,5vh,48px);left:50%;transform:translateX(-50%);width:min(90vw,760px);border:0!important;border-collapse:collapse;table-layout:fixed;background:transparent;color:#203329;text-align:center;font-size:clamp(.85rem,1.8vw,1.05rem);line-height:1.4;letter-spacing:.025em}
+.splash-footer td{width:50%;border:0!important;background:transparent!important;padding:8px 14px;vertical-align:top;text-align:center}
+.splash-footer img{display:block;width:200px;max-width:100%;height:auto;margin:14px auto 0;object-fit:contain}
+.splash-footer .team-bulb{height:100px;width:auto;max-width:100%;object-fit:contain;margin:14px auto 0}
+.splash-footer strong{display:block;font-weight:700;margin-top:5px;color:#203329;font-size:clamp(.95rem,2vw,1.2rem)}
+@media(max-width:450px){.splash-footer{width:96vw;font-size:.78rem}.splash-footer td{padding:6px}.splash-footer strong{font-size:.88rem}}
+/* On very narrow screens, prioritize the player's hand immediately after the title. */
+@media (max-width:600px){
+  .game-columns{display:flex;flex-direction:column;gap:0}
+  .game-columns>.hand-unboxed{order:0;width:100%;min-width:0}
+  .game-columns>.market-region{order:1;width:100%;min-width:0}
+}
+
+/* V91: prominent architectural-stamp action controls. */
+.hand-chance,.detail-action,.cash-out-action,#startGame,
+.popup button:not(.secondary){
+  min-height:60px;
+  padding:15px 22px;
+  font-size:1.25rem;
+  font-weight:800;
+  letter-spacing:.025em;
+  line-height:1.2;
+  border-radius:8px;
+  box-shadow:4px 5px 0 rgba(54,79,49,.18);
+}
+.hand-chance,.detail-action,.popup button:not(.secondary),#startGame{
+  background:#e1ebd9!important;
+  color:#243F2B!important;
+}
+.cash-out-action:not(:disabled){
+  background:#405B3B!important;
+  color:#fff!important;
+  box-shadow:4px 5px 0 rgba(31,53,29,.28);
+}
+.hand-chance:not(:disabled),.detail-action:not(:disabled),
+.popup button:not(.secondary):not(:disabled),#startGame:not(:disabled){color:#243F2B!important}
+.cash-out-action:not(:disabled){color:#fff!important}
+.hand-chance:disabled,.detail-action:disabled,.cash-out-action:disabled,
+.popup button:disabled{box-shadow:none;opacity:.52}
+.hand-chance:not(:disabled):active,.detail-action:not(:disabled):active,
+.cash-out-action:not(:disabled):active,#startGame:not(:disabled):active,
+.popup button:not(.secondary):not(:disabled):active{box-shadow:1px 2px 0 rgba(54,79,49,.22)}
+.hand-selector .hand-chance{margin-top:13px;justify-content:center}
+.hand-detail .detail-action{min-width:180px;margin-top:10px}
+.total-actions{gap:20px}
+@media(max-width:600px){
+ .hand-chance,.detail-action,.cash-out-action,#startGame,.popup button:not(.secondary){min-height:56px;font-size:1.13rem;padding:13px 17px}
+ .hand-detail .detail-action{min-width:160px}
+}
+
+/* V95: splash instructions separated by light-bulb glyphs, with scroll-safe credits. */
+.splash-screen{overflow-y:auto;overflow-x:hidden;display:flex;flex-direction:column;justify-content:flex-start;align-items:center;gap:0;padding:clamp(18px,3vh,32px) 20px 20px}
+.splash-content{width:min(100%,720px);padding:0 10px 26px!important;flex:0 0 auto}
+.splash-content h1{margin-bottom:clamp(36px,6vh,64px)}
+.splash-gist{max-width:630px;margin:0 auto clamp(18px,3vh,30px);color:#203329;font-size:clamp(.95rem,1.6vw,1.13rem);line-height:1.4}
+.splash-gist p{margin:0 auto;max-width:60ch}
+.splash-gist p+p::before{content:"\1F4A1";display:block;font-size:1.12rem;line-height:1.2;margin:5px auto;color:#405B3B}
+.splash-gist-heading{font-size:clamp(1.2rem,2.2vw,1.55rem);letter-spacing:.025em}
+.splash-footer{position:static;left:auto;bottom:auto;transform:none;margin: auto auto 0;flex:0 0 auto}
+@media(max-width:600px){.splash-screen{padding:18px 12px}.splash-content{padding:0 0 20px!important}.splash-gist{font-size:.93rem;line-height:1.33}.splash-gist p+p::before{margin:3px auto;font-size:1rem}.splash-content h1{font-size:clamp(2.5rem,10vw,4rem)}}
+/* V97: vertically center the title, instructions and Start Game control in the space above the credits. */
+.splash-screen{min-height:100dvh;box-sizing:border-box}
+.splash-content{flex:1 0 auto;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.splash-gist{width:100%}
+.splash-footer{margin:0 auto;flex:0 0 auto}
+.popup > svg.rough-outline{display:none!important}
+.popup{border:none!important}
+/* V107: market heading sits outside and above the hatched enclosing panel. */
+.market-region{min-width:0;margin-top:18px}
+.market-region > h2{margin:0 0 12px}
+.market-region > .panel{margin-top:0}
+/* V108: align both section headings and the top edges of their content regions. */
+.game-columns > .hand-unboxed,
+.game-columns > .market-region{margin-top:18px;padding-top:0}
+.game-columns > .hand-unboxed > h2,
+.game-columns > .market-region > h2{margin:0 0 12px;line-height:1.3}
+.game-columns > .market-region > .panel{margin-top:0}
+</style></head><body><div id="splashScreen" class="splash-screen" role="dialog" aria-modal="true" aria-labelledby="splashTitle"><div class="splash-content"><h1 id="splashTitle">The Light Trade</h1><div class="splash-gist" aria-label="How to play"><p class="splash-gist-heading"><strong>The gist</strong></p><p>Get an 8-card hand of old light fixtures to re-use, recycle, or landfill</p><p>Each card has a value, based on the materials it contains, which changes with every turn</p><p>Maximize the value of your hand by swapping with other players, drawing a Chance card, or cashing out</p><p>Cashing out fixes the value of your hand and ends play</p><p>The game ends when every player has cashed out</p></div><button type="button" id="startGame">Start Game</button></div><table class="splash-footer" aria-label="Game credits"><tbody><tr><td>Developed by<strong>Team Eureka</strong><img class="team-bulb" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMjIiIGhlaWdodD0iNTQyIiB2aWV3Qm94PSIwIDAgMzIyIDU0MiI+Cjx0aXRsZT5BQlNUIGxpZ2h0IGJ1bGI8L3RpdGxlPgo8ZyBmaWxsPSJub25lIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2UtbGluZWNhcD0icm91bmQiPgo8IS0tIG91dGVyIGdsYXNzOiBoZWF2aWVyIGJsYWNrIGxpbmUgLS0+CjxwYXRoIGQ9Ik0gODggNDE4IEMgNzggNDA1IDcyIDM3MSA2NCAzMzggTCAzNCAxOTkgQyAxOCAxMjQgMzcgNjkgNzggNDQgQyAxMjUgMTYgMTk0IDIzIDIzNyA1MSBDIDI3NyA3NyAyOTcgMTMwIDI5MCAxODYgTCAyNTggMzM3IEMgMjUwIDM3MiAyNDYgNDA4IDIzMCA0MjMgQyAyMjAgNDMzIDIwNSA0MzMgMTkwIDQzMyBMIDEyNyA0MzMgQyAxMDggNDMzIDk2IDQyOSA4OCA0MTggWiIgc3Ryb2tlPSIjMjkyOTI5IiBzdHJva2Utd2lkdGg9IjIuNjUiLz4KPCEtLSBpbnRlcm5hbCBzdXBwb3J0LCBzdWJ0bGUgZ3JheSAtLT4KPHBhdGggZD0iTSAxNTMgODggTCAxNjcgODggTCAxNzYgMTI4IEwgMTc2IDQwOCBNIDE1MyA4OCBMIDE0NSAxMjUgTCAxNDUgNDA4IiBzdHJva2U9IiNhMWExYTEiIHN0cm9rZS13aWR0aD0iMS42Ii8+CjxwYXRoIGQ9Ik0gMTQ1IDE3MSBMIDE0NSA0MDggTSAxNzYgMTY5IEwgMTc2IDQwOCIgc3Ryb2tlPSIjYjViNWI1IiBzdHJva2Utd2lkdGg9IjEuMyIvPgo8IS0tIGJhc2UgY29sbGFyIC0tPgo8cGF0aCBkPSJNIDExNiA0MDggSCAyMDUgViA0NTggSCAxMTYgWiIgc3Ryb2tlPSIjYTBhMGEwIiBzdHJva2Utd2lkdGg9IjEuNzUiLz4KPHBhdGggZD0iTSAxMTYgNDMzIEggMjA1IiBzdHJva2U9IiM5YjliOWIiIHN0cm9rZS13aWR0aD0iMS42Ii8+CjwhLS0gdGhyZWFkZWQgc2NyZXcgLS0+CjxwYXRoIGQ9Ik0gMTE2IDQ1OCBMIDEwMyA0NjcgTCAxMTcgNDc2IEwgMTA1IDQ4NSBMIDExNyA0OTQgTCAxMDYgNTAyIEwgMTE4IDUxMSBMIDEyMiA1MTkgSCAxOTkgTCAyMDQgNTExIEwgMjE2IDUwMiBMIDIwNCA0OTQgTCAyMTcgNDg1IEwgMjA0IDQ3NiBMIDIxOCA0NjcgTCAyMDUgNDU4IiBzdHJva2U9IiNhNWE1YTUiIHN0cm9rZS13aWR0aD0iMS43Ii8+CjxwYXRoIGQ9Ik0gMTE3IDQ3NiBIIDIwNCBNIDExNyA0OTQgSCAyMDQgTSAxMTggNTExIEggMjA0IiBzdHJva2U9IiNiMGIwYjAiIHN0cm9rZS13aWR0aD0iMS4xNSIvPgo8L2c+CjwhLS0gc2VyaWYgbGV0dGVyaW5nOiBmaW5lIGRhcmsgb3V0bGluZXMsIHdoaXRlIGludGVyaW9yIC0tPgo8ZyBmaWxsPSJ3aGl0ZSIgc3Ryb2tlPSIjMjAyMDIwIiBzdHJva2Utd2lkdGg9IjEuNyIgcGFpbnQtb3JkZXI9InN0cm9rZSBmaWxsIiBmb250LWZhbWlseT0iTGliZXJhdGlvbiBTZXJpZiwgVGltZXMgTmV3IFJvbWFuLCBzZXJpZiIgZm9udC13ZWlnaHQ9IjQwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+Cjx0ZXh0IHg9IjE2MSIgeT0iMTYyIiBmb250LXNpemU9IjczIj5BPC90ZXh0Pgo8dGV4dCB4PSIxNjEiIHk9IjI0MCIgZm9udC1zaXplPSI3NSI+QjwvdGV4dD4KPHRleHQgeD0iMTYxIiB5PSIzMTciIGZvbnQtc2l6ZT0iNzYiPlM8L3RleHQ+Cjx0ZXh0IHg9IjE2MSIgeT0iMzk1IiBmb250LXNpemU9Ijc2Ij5UPC90ZXh0Pgo8L2c+Cjwvc3ZnPgo=" alt="Abstract light bulb illustration" height="100"></td><td>Developed for<strong>FND2007 Community Practice</strong><img src="https://upload.wikimedia.org/wikipedia/commons/1/11/The_BAC_Main_Logo.png" alt="Boston Architectural College logo" loading="eager"></td></tr></tbody></table></div><main class="wrap">
+<header><div><h1>The Light Trade</h1></div><div class="header-pills"><span class="tag" id="turnLabel">Turn 1</span><span class="tag" id="playerCount">4 players</span></div></header>
+<div class="game-columns"><section class="hand-unboxed"><h2>Your hand</h2><div id="hand" class="hand-layout"></div><p id="resaleFootnote" class="muted note" style="margin:12px 0 0">* Card value is based on resale value rather than material value.</p><div class="total"><span><b>Total hand value</b><br><span class="muted note" id="handCount">8 cards</span></span><div class="total-actions"><strong id="total">0.00</strong><button id="reset" class="cash-out-action">Cash out</button></div></div><div class="last-play"><div class="last-play-label">Last play</div><p class="message" id="swapMessage" role="status" aria-live="polite"></p></div></section>
+<section class="market-region"><h2>Public market prices</h2><div class="panel"><p class="muted note">Prices changes randomly after every turn. If you choose "Cash out," the prices shown will determine payout.</p><div class="grid" id="market"></div></div></section></div>
+
+
+</main><div id="swapPopup" class="popup-backdrop" hidden><div class="popup" role="dialog" aria-modal="true" aria-labelledby="swapTitle"><h2 id="swapTitle">Choose an available hand</h2><p class="muted note">You will receive the lowest-valued card in the selected hidden hand. Hands worth more than your total hand value cannot be selected.</p><div class="choice-buttons" id="forceCardChoices" hidden></div><div class="choice-buttons" id="swapChoices"><button data-choice="0">Player 1</button><button data-choice="1">Player 2</button><button data-choice="2">Player 3</button></div><button id="cancelSwap" class="secondary" style="margin-top:16px">Cancel</button></div></div><div id="cashPopup" class="popup-backdrop" hidden><div class="popup" role="alertdialog" aria-modal="true" aria-labelledby="cashTitle" aria-describedby="cashResult"><h2 id="cashTitle">Your final card values</h2><div id="cashResult" class="cash-detail"></div><button id="closeCash">Next</button></div></div><div id="chancePopup" class="popup-backdrop" hidden><div class="popup" role="alertdialog" aria-modal="true" aria-labelledby="chanceTitle" aria-describedby="chanceResult"><h2 id="chanceTitle">Chance card drawn</h2><div id="chanceResult" class="popup-result"></div><button id="closeChance">OK</button></div></div><script src="https://cdn.jsdelivr.net/npm/roughjs@4.6.6/bundled/rough.js"></script><script>
+'use strict';
+// EDITABLE SETTINGS. 36 card types; each of four players receives 8 independently drawn cards (with replacement).
+const CATEGORIES=[{name:'Resale Mkt',color:'#8b5e3c',priceUnit:'',quantityUnit:'$'},{name:'Steel',color:'#64748b'},{name:'Aluminum',color:'#60a5fa'},{name:'Copper',color:'#b87333'},{name:'Glass',color:'#0d9488'},{name:'Landfill',color:'#78716c'},{name:'HAZMAT',color:'#b91c1c'}];
+// Editable market ranges. Glass, Landfill and HAZMAT are negative disposal costs.
+const PRICE_RANGES=[
+  {min:0.50,max:2.50}, // Resale Mkt (dimensionless)
+  {min:0.05,max:0.30}, // Steel ($/kg)
+  {min:0.05,max:0.80}, // Aluminum ($/kg)
+  {min:1.00,max:8.00}, // Copper ($/kg)
+  {min:-0.50,max:-0.10}, // Glass ($/kg)
+  {min:-0.40,max:-0.05}, // Landfill ($/kg)
+  {min:-12.00,max:-4.00} // HAZMAT ($/kg)
+];
+const roundPrice=n=>Math.round((n+Number.EPSILON)*100)/100;
+const STARTING_PRICES=PRICE_RANGES.map(({min,max})=>roundPrice((min+max)/2));
+const formatPrice=n=>Number(n).toFixed(2);
+
+const STARTING_CARDS=
+[
+  {
+    "id": "c1",
+    "name": "Tiffany-style lamp",
+    "kg": [
+      90,
+      0,
+      0,
+      1,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "id": "c2",
+    "name": "Modern chandelier",
+    "kg": [
+      49,
+      0,
+      2,
+      1,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "c3",
+    "name": "Car charger",
+    "kg": [
+      85,
+      3,
+      2,
+      3,
+      0,
+      2,
+      0
+    ]
+  },
+  {
+    "id": "c4",
+    "name": "Bronze pendant",
+    "kg": [
+      25,
+      0,
+      0,
+      2,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "id": "c5",
+    "name": "8 Mercury vapor streetlights",
+    "kg": [
+      0,
+      0,
+      19,
+      2,
+      0,
+      16,
+      4
+    ]
+  },
+  {
+    "id": "c6",
+    "name": "6 High bays",
+    "kg": [
+      0,
+      15,
+      6,
+      2,
+      12,
+      6,
+      3
+    ]
+  },
+  {
+    "id": "c7",
+    "name": "2 HID wall packs",
+    "kg": [
+      0,
+      0,
+      6,
+      0,
+      0,
+      2,
+      4
+    ]
+  },
+  {
+    "id": "c8",
+    "name": "Ceiling fan",
+    "kg": [
+      0,
+      2,
+      0,
+      1,
+      0,
+      2,
+      0
+    ]
+  },
+  {
+    "id": "c9",
+    "name": "1920s pendant",
+    "kg": [
+      12,
+      0,
+      0,
+      3,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "c10",
+    "name": "12 Cans",
+    "kg": [
+      0,
+      10,
+      6,
+      0,
+      0,
+      3,
+      0
+    ]
+  },
+  {
+    "id": "c11",
+    "name": "100 Fluorescent troffers",
+    "kg": [
+      0,
+      20,
+      18,
+      4,
+      0,
+      3,
+      10
+    ]
+  },
+  {
+    "id": "c12",
+    "name": "2 sconces",
+    "kg": [
+      0,
+      0,
+      2,
+      0,
+      0,
+      2,
+      0
+    ]
+  },
+  {
+    "id": "c13",
+    "name": "Fluorescent ceiling fixture",
+    "kg": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "id": "c14",
+    "name": "2 Pendants",
+    "kg": [
+      0,
+      4,
+      0,
+      1,
+      0,
+      2,
+      0
+    ]
+  },
+  {
+    "id": "c15",
+    "name": "2 ceiling fans",
+    "kg": [
+      0,
+      4,
+      0,
+      1,
+      0,
+      3,
+      0
+    ]
+  },
+  {
+    "id": "c16",
+    "name": "6 Cans",
+    "kg": [
+      0,
+      5,
+      3,
+      1,
+      0,
+      2,
+      0
+    ]
+  },
+  {
+    "id": "c17",
+    "name": "1950s mirror sconces",
+    "kg": [
+      32,
+      3,
+      0,
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "c18",
+    "name": "6 Troffers",
+    "kg": [
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "id": "c19",
+    "name": "Chandelier",
+    "kg": [
+      75,
+      0,
+      0,
+      15,
+      16,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "c20",
+    "name": "Fluorescent shop light",
+    "kg": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "id": "c21",
+    "name": "10 Porcelain lamps",
+    "kg": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      6,
+      0
+    ]
+  },
+  {
+    "id": "c22",
+    "name": "LED Strip light",
+    "kg": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      2,
+      0
+    ]
+  },
+  {
+    "id": "c23",
+    "name": "4-Head track light",
+    "kg": [
+      0,
+      2,
+      4,
+      1,
+      0,
+      4,
+      0
+    ]
+  },
+  {
+    "id": "c24",
+    "name": "Crystal ceiling lamp",
+    "kg": [
+      9,
+      0,
+      0,
+      10,
+      16,
+      2,
+      0
+    ]
+  },
+  {
+    "id": "c25",
+    "name": "Copper post lamp",
+    "kg": [
+      58,
+      0,
+      0,
+      3,
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "id": "c26",
+    "name": "18 LV landscape lights",
+    "kg": [
+      0,
+      4,
+      8,
+      2,
+      0,
+      12,
+      0
+    ]
+  },
+  {
+    "id": "c27",
+    "name": "6 bronze step lights",
+    "kg": [
+      20,
+      0,
+      0,
+      6,
+      2,
+      4,
+      0
+    ]
+  },
+  {
+    "id": "c28",
+    "name": "8 fluorescent cans",
+    "kg": [
+      0,
+      6,
+      3,
+      1,
+      0,
+      0,
+      2
+    ]
+  },
+  {
+    "id": "c29",
+    "name": "Hanging pendant",
+    "kg": [
+      0,
+      2,
+      0,
+      1,
+      0,
+      2,
+      0
+    ]
+  },
+  {
+    "id": "c30",
+    "name": "Bathroom fan/light",
+    "kg": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      2,
+      0
+    ]
+  },
+  {
+    "id": "c31",
+    "name": "8 LED cans",
+    "kg": [
+      9,
+      0,
+      8,
+      0,
+      0,
+      6,
+      0
+    ]
+  },
+  {
+    "id": "c32",
+    "name": "Jelly jar porch light",
+    "kg": [
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "c33",
+    "name": "2 Coach lamps",
+    "kg": [
+      0,
+      3,
+      1,
+      1,
+      2,
+      2,
+      0
+    ]
+  },
+  {
+    "id": "c34",
+    "name": "Shop light",
+    "kg": [
+      0,
+      2,
+      0,
+      1,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "id": "c35",
+    "name": "Neon sign",
+    "kg": [
+      44,
+      1,
+      0,
+      1,
+      3,
+      0,
+      2
+    ]
+  },
+  {
+    "id": "c36",
+    "name": "Knob & tube pendant",
+    "kg": [
+      0,
+      2,
+      0,
+      1,
+      1,
+      0,
+      0
+    ]
+  }
+];
+const MOVEMENT_WEIGHTS=[{magnitude:0,weight:20},{magnitude:1,weight:50},{magnitude:2,weight:20},{magnitude:3,weight:4},{magnitude:4,weight:3},{magnitude:5,weight:3}];
+const STORAGE_KEY='card_market_custom_v42_36_card_deck';
+const LEGACY_SEVEN_STORAGE_KEY='card_market_custom_v22_7materials';
+const PREVIOUS_STORAGE_KEY='card_market_custom_v11_kg';
+const OLD_STORAGE_KEY='card_market_custom_v7';
+const CHANCE_MESSAGES=[...Array(8).fill('random trade'),'cash out','force trade'];
+const el=id=>document.getElementById(id);
+const clamp=(n,min,max)=>Math.max(min,Math.min(max,n));
+const escapeHtml=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let state;
+function weightedMovement(){let roll=Math.random()*MOVEMENT_WEIGHTS.reduce((s,w)=>s+w.weight,0);for(const item of MOVEMENT_WEIGHTS){roll-=item.weight;if(roll<0)return item.magnitude===0?0:item.magnitude*(Math.random()<.5?-1:1);}return 0;}
+function shuffle(ids){for(let i=ids.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[ids[i],ids[j]]=[ids[j],ids[i]];}return ids;}
+function initialState(){const ids=STARTING_CARDS.map(c=>c.id);const dealHand=()=>Array.from({length:8},()=>ids[Math.floor(Math.random()*ids.length)]);return{turn:1,prices:[...STARTING_PRICES],previousPrices:[...STARTING_PRICES],hand:dealHand(),available:[dealHand(),dealHand(),dealHand()],history:[{turn:1,prices:[...STARTING_PRICES]}],lastSwap:'',swappedThisTurn:false,lastChance:''};}
+function validState(s){const ids=STARTING_CARDS.map(c=>c.id);const available=Array.isArray(s?.available)?s.available.flat():[];return s&&Number.isInteger(s.turn)&&s.turn>=1&&Array.isArray(s.prices)&&s.prices.length===7&&s.prices.every((p,i)=>Number.isFinite(p)&&p>=PRICE_RANGES[i].min&&p<=PRICE_RANGES[i].max)&&Array.isArray(s.previousPrices)&&s.previousPrices.length===7&&Array.isArray(s.hand)&&s.hand.length===8&&Array.isArray(s.available)&&s.available.length===3&&s.available.every(h=>Array.isArray(h)&&h.length===8)&&[...s.hand,...available].every(id=>ids.includes(id))&&Array.isArray(s.history)&&typeof s.swappedThisTurn==='boolean';}
+function migrateOld(s){if(!s||!Array.isArray(s.hand)||s.hand.length!==8||!Array.isArray(s.available)||s.available.length!==8)return null;const oldIds=[...s.hand,...s.available];if(new Set(oldIds).size!==16||oldIds.some(id=>!STARTING_CARDS.some(c=>c.id===id)))return null;const extra=STARTING_CARDS.map(c=>c.id).filter(id=>!oldIds.includes(id));s.available=shuffle([...s.available,...extra]);s.available=[s.available.slice(0,8),s.available.slice(8,16),s.available.slice(16,24)];return validState(s)?s:null;}
+function migrateFourMaterialState(s){
+  if(!s||!Array.isArray(s.prices)||s.prices.length!==4||!Array.isArray(s.previousPrices)||s.previousPrices.length!==4)return null;
+  const updated=structuredClone(s);
+  updated.prices=[...updated.prices,...STARTING_PRICES.slice(4)];
+  updated.previousPrices=[...updated.previousPrices,...STARTING_PRICES.slice(4)];
+  if(!Array.isArray(updated.history))return null;
+  updated.history=updated.history.map(entry=>({...entry,prices:Array.isArray(entry.prices)&&entry.prices.length===4?[...entry.prices,...STARTING_PRICES.slice(4)]:entry.prices}));
+  return validState(updated)?updated:null;
+}
+function migrateLegacyPrices(saved){
+  if(!saved || !Array.isArray(saved.prices) || saved.prices.length!==7 || !Array.isArray(saved.history))return null;
+  const converted=structuredClone(saved);
+  const convert=(p,i)=>roundPrice(PRICE_RANGES[i].min + clamp(Number(p),0,10)/10*(PRICE_RANGES[i].max-PRICE_RANGES[i].min));
+  converted.prices=converted.prices.map(convert);
+  converted.previousPrices=converted.previousPrices.map(convert);
+  converted.history=converted.history.map(entry=>({...entry,prices:entry.prices.map(convert)}));
+  return validState(converted)?converted:null;
+}
+function load(){try{
+  const raw=localStorage.getItem(STORAGE_KEY);
+  if(raw){const saved=JSON.parse(raw);if(validState(saved))return saved;}
+  const old=localStorage.getItem(LEGACY_SEVEN_STORAGE_KEY);
+  if(old){const migrated=migrateLegacyPrices(JSON.parse(old));if(migrated)return migrated;}
+}catch(e){console.warn('Saved game unavailable',e);}return initialState();}
+function save(){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(state));}catch(e){console.warn('Could not save game',e);}}
+function displayCardValue(card){
+  const amount=valueOf(card);
+  return amount.toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2})+(card.IsResold?'*':'');
+}
+function cashOut(){
+  const format=n=>n.toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2});
+  const rows=state.hand.map((id,i)=>{
+    const card=cardById(id);
+    const displayedValue=displayCardValue(card);
+    return `<tr class="${card.IsResold?'resold-row':''}"><td>${i+1}</td><td>${escapeHtml(card.name)}</td><td>${displayedValue}</td></tr>`;
+  }).join('');
+  const total=state.hand.reduce((sum,id)=>sum+valueOf(cardById(id)),0);
+  el('cashTitle').textContent='Your final card values';
+  el('cashResult').innerHTML=`<table class="rank-table"><thead><tr><th>#</th><th>Card</th><th>Value</th></tr></thead><tbody>${rows}<tr class="rank-winner"><td colspan="2"><strong>Total hand value</strong></td><td><strong>${format(total)}</strong></td></tr></tbody></table><p class="muted note" style="text-align:left;margin:8px 0 16px">* Card value is based on resale value rather than material value.</p>`;
+  el('closeCash').textContent='Next';
+  el('cashPopup').hidden=false;
+  el('closeCash').focus();
+}
+function showCashRankings(){
+  const hands=[{name:'You',cards:state.hand},...state.available.map((cards,i)=>({name:`Player ${i+1}`,cards}))];
+  const ranked=hands.map(h=>({name:h.name,total:h.cards.reduce((sum,id)=>sum+valueOf(cardById(id)),0)}))
+    .sort((a,b)=>b.total-a.total || a.name.localeCompare(b.name));
+  const format=n=>n.toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2});
+  let previous=null,rank=0;
+  const rows=ranked.map((h,i)=>{
+    if(previous===null||h.total!==previous)rank=i+1;
+    previous=h.total;
+    return `<tr class="${rank===1?'rank-winner':''}"><td>${rank}</td><td>${escapeHtml(h.name)}</td><td>${format(h.total)}</td></tr>`;
+  }).join('');
+  el('cashTitle').textContent='Final hand values & rankings';
+  el('cashResult').innerHTML=`<table class="rank-table"><thead><tr><th>Rank</th><th>Player</th><th>Hand value</th></tr></thead><tbody>${rows}</tbody></table>`;
+  el('closeCash').textContent='New game';
+  el('closeCash').focus();
+}
+function advanceCashPopup(){
+  if(el('closeCash').textContent==='Next')showCashRankings();
+  else newGame();
+}
+function newGame(){
+  clearTimeout(swapAnimationTimer);
+  swapAnimationTimer=null;
+  swapTransitionActive=false;
+  pendingSwapIndex=null;
+  forceTradeActive=false;
+  el('cashPopup').hidden=true;
+  el('chancePopup').hidden=true;
+  el('swapPopup').hidden=true;
+  state=initialState();
+  selectedHandIndex=-1;
+  render();
+}
+function endTurn(){if(!state.swappedThisTurn)return;state.previousPrices=[...state.prices];state.prices=state.prices.map((p,i)=>{const r=PRICE_RANGES[i];const step=(r.max-r.min)/10;return roundPrice(clamp(p+weightedMovement()*step,r.min,r.max));});state.turn++;state.history.push({turn:state.turn,prices:[...state.prices]});state.lastChance='';state.swappedThisTurn=false;selectedHandIndex=-1;render();}
+let pendingSwapIndex=null;
+let forceTradeActive=false;
+let swapAnimationTimer=null;
+let swapTransitionActive=false;
+function swapCard(index){
+  if(!Number.isInteger(index)||index<0||index>=8||(state.swappedThisTurn||swapTransitionActive))return;
+  forceTradeActive=false;
+  el('forceCardChoices').hidden=true;
+  el('swapChoices').hidden=false;
+  el('swapTitle').textContent='Choose an available hand';
+  el('swapPopup').querySelector('.note').textContent='You will receive the lowest-valued card in the selected hidden hand. Hands worth more than your total hand value cannot be selected.';
+  pendingSwapIndex=index;
+  const myTotal=state.hand.reduce((sum,id)=>sum+valueOf(cardById(id)),0);
+  const buttons=[...el('swapChoices').querySelectorAll('button[data-choice]')];
+  buttons.forEach((button,i)=>{
+    const theirTotal=state.available[i].reduce((sum,id)=>sum+valueOf(cardById(id)),0);
+    button.disabled=theirTotal>myTotal+1e-9;
+    button.title=button.disabled?'This hand is worth more than your hand.':'';
+  });
+  el('swapPopup').hidden=false;
+  (buttons.find(button=>!button.disabled)||el('cancelSwap')).focus();
+}
+function cancelSwap(){
+  el('swapPopup').hidden=true;
+  el('forceCardChoices').hidden=true;
+  el('swapChoices').hidden=false;
+  pendingSwapIndex=null;
+  forceTradeActive=false;
+  const button=el('hand').querySelector('[data-swap]');
+  if(button)button.focus();
+}
+function confirmSwap(handIndex){
+  if(pendingSwapIndex===null||(state.swappedThisTurn||swapTransitionActive)||!Number.isInteger(handIndex)||handIndex<0||handIndex>=3)return;
+  const hand=state.available[handIndex];
+  if(!Array.isArray(hand)||hand.length!==8)return;
+  const myTotal=state.hand.reduce((sum,id)=>sum+valueOf(cardById(id)),0);
+  const theirTotal=hand.reduce((sum,id)=>sum+valueOf(cardById(id)),0);
+  if(!forceTradeActive&&theirTotal>myTotal+1e-9)return;
+  const candidates=hand.map((id,index)=>({id,index,value:valueOf(cardById(id))}));
+  const lowest=Math.min(...candidates.map(c=>c.value));
+  const tied=candidates.filter(c=>Math.abs(c.value-lowest)<1e-9);
+  const picked=forceTradeActive
+    ? candidates[Math.floor(Math.random()*candidates.length)]
+    : tied[Math.floor(Math.random()*tied.length)];
+  const replacedIndex=pendingSwapIndex;
+  selectedHandIndex=replacedIndex;
+  const outgoing=state.hand[replacedIndex];
+  state.hand[replacedIndex]=picked.id;
+  hand[picked.index]=outgoing;
+  state.swappedThisTurn=true;
+  state.lastSwap=forceTradeActive
+    ? `Force trade: ${cardById(outgoing).name} exchanged for randomly selected ${cardById(picked.id).name} from Player ${handIndex+1}. Prices update automatically.`
+    : `Swapped ${cardById(outgoing).name} for ${cardById(picked.id).name} from Player ${handIndex+1} (lowest value in selected hand: ${lowest.toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2})}). Prices update automatically.`;
+  pendingSwapIndex=null;
+  forceTradeActive=false;
+  el('swapPopup').hidden=true;
+  el('forceCardChoices').hidden=true;
+  el('swapChoices').hidden=false;
+  swapTransitionActive=true;
+  render();
+  const receivedCard=el('hand').querySelector(`[data-card-index="${replacedIndex}"]`);
+  if(receivedCard)receivedCard.classList.add('swap-highlight');
+  clearTimeout(swapAnimationTimer);
+  swapAnimationTimer=setTimeout(()=>{
+    if(receivedCard)receivedCard.classList.remove('swap-highlight');
+    swapTransitionActive=false;
+    endTurn();
+  },2000);
+}
+function drawChance(){
+  if(state.swappedThisTurn||swapTransitionActive)return;
+  const choice=CHANCE_MESSAGES[Math.floor(Math.random()*CHANCE_MESSAGES.length)];
+  state.lastChance=choice;
+  state.lastSwap=`Chance card drawn: ${choice}. Select the action in the popup.`;
+  render();
+  el('chanceResult').textContent=choice;
+  el('closeChance').textContent=choice==='cash out'?'Cash out':choice==='force trade'?'Force trade':'Random trade';
+  el('chancePopup').hidden=false;
+  el('closeChance').focus();
+}
+function randomTrade(){
+  if(state.swappedThisTurn||swapTransitionActive)return;
+  const ownIndex=Math.floor(Math.random()*state.hand.length);
+  const otherIndex=Math.floor(Math.random()*state.available.length);
+  const otherHand=state.available[otherIndex];
+  const theirIndex=Math.floor(Math.random()*otherHand.length);
+  const outgoing=state.hand[ownIndex],incoming=otherHand[theirIndex];
+  state.hand[ownIndex]=incoming;
+  otherHand[theirIndex]=outgoing;
+  state.swappedThisTurn=true;
+  state.lastSwap=`Random trade: ${cardById(outgoing).name} exchanged for ${cardById(incoming).name} from Player ${otherIndex+1}. Prices update after the 2-second highlight.`;
+  el('chancePopup').hidden=true;
+  swapTransitionActive=true;
+  selectedHandIndex=ownIndex;
+  render();
+  const receivedCard=el('hand').querySelector(`[data-card-index="${ownIndex}"]`);
+  if(receivedCard)receivedCard.classList.add('swap-highlight');
+  clearTimeout(swapAnimationTimer);
+  swapAnimationTimer=setTimeout(()=>{
+    if(receivedCard)receivedCard.classList.remove('swap-highlight');
+    swapTransitionActive=false;
+    endTurn();
+  },2000);
+}
+function beginForceTrade(){
+  if(state.swappedThisTurn||swapTransitionActive)return;
+  el('chancePopup').hidden=true;
+  forceTradeActive=true;
+  pendingSwapIndex=null;
+  el('swapTitle').textContent='Force trade — select a card';
+  el('swapPopup').querySelector('.note').textContent='First choose which card to trade away. Next, choose any player; you will receive one randomly selected card from their hand.';
+  el('swapChoices').hidden=true;
+  const cardChoices=el('forceCardChoices');
+  cardChoices.hidden=false;
+  cardChoices.innerHTML=state.hand.map((id,i)=>`<button type="button" data-force-card="${i}">${escapeHtml(cardById(id).name)} — ${displayCardValue(cardById(id))}</button>`).join('');
+  el('swapPopup').hidden=false;
+  cardChoices.querySelector('button')?.focus();
+}
+function chooseForceTradeCard(index){
+  if(!forceTradeActive||!Number.isInteger(index)||index<0||index>=state.hand.length)return;
+  pendingSwapIndex=index;
+  selectedHandIndex=index;
+  el('forceCardChoices').hidden=true;
+  el('swapChoices').hidden=false;
+  el('swapTitle').textContent='Force trade — choose a player';
+  el('swapPopup').querySelector('.note').textContent=`Trading ${cardById(state.hand[index]).name}. Choose any player to receive a randomly selected card from their hand. Hand-value restrictions do not apply.`;
+  const buttons=[...el('swapChoices').querySelectorAll('button[data-choice]')];
+  buttons.forEach(button=>{button.disabled=false;button.title='';});
+  buttons[0]?.focus();
+}
+function closeChance(){
+  if(state.lastChance==='cash out'){
+    el('chancePopup').hidden=true;
+    cashOut(); // Cash out does not update prices or advance the turn.
+  }else if(state.lastChance==='random trade'){
+    randomTrade();
+  }else if(state.lastChance==='force trade'){
+    beginForceTrade();
+  }
+}
+function cardById(id){return STARTING_CARDS.find(c=>c.id===id);}
+function valueOf(card){
+  // Material-only value A excludes the resale value at index 0.
+  const resaleValue=Number(card.kg[0])||0;
+  const valueA=card.kg.slice(1).reduce((sum,kg,i)=>sum+kg*state.prices[i+1],0);
+  // Without a positive resale value, use material value A.
+  if(resaleValue<=0){card.IsResold=false;return valueA;}
+  const valueB=resaleValue*state.prices[0];
+  card.IsResold=valueB>valueA;
+  return card.IsResold?valueB:valueA;
+}
+function mixBar(kg){
+  const materials=kg.slice(1),total=materials.reduce((a,b)=>a+b,0);
+  const labels=materials.map((amount,i)=>`${CATEGORIES[i+1].name}: ${amount.toLocaleString()} kg`).join('; ');
+  // The spans are a functional fallback when the Rough.js CDN is unavailable.
+  return `<div class="stack rough-material-chart" role="img" aria-label="Material composition by weight (resale excluded): ${labels}" data-amounts="${materials.join(',')}">`+
+    materials.map((amount,i)=>`<span title="${CATEGORIES[i+1].name}: ${amount.toLocaleString()} kg" style="width:${total?amount/total*100:0}%;background:${CATEGORIES[i+1].color}"></span>`).join('')+'</div>';
+}
+
+
+function mixText(kg){return kg.slice(1).map((amount,i)=>amount?`${CATEGORIES[i+1].name} ${amount.toLocaleString()} kg`:null).filter(Boolean).join(' · ')||'No material quantities';}
+function averagePrice(index){
+  // Include the initial market prices and every subsequent recorded turn.
+  const observations=state.history.filter(entry=>Array.isArray(entry.prices)&&Number.isFinite(entry.prices[index]));
+  return observations.length ? observations.reduce((sum,entry)=>sum+entry.prices[index],0)/observations.length : state.prices[index];
+}
+function marketSparkline(index){
+  const observations=state.history.filter(e=>Array.isArray(e.prices)&&Number.isFinite(e.prices[index]));
+  const range=PRICE_RANGES[index], W=180,H=64,pad=5;
+  const x=n=>pad+(observations.length===1?(W-2*pad)/2:n/(observations.length-1)*(W-2*pad));
+  const y=v=>pad+(range.max-v)/(range.max-range.min)*(H-2*pad);
+  const points=observations.map((entry,n)=>`${x(n).toFixed(2)},${y(entry.prices[index]).toFixed(2)}`).join(' ');
+  const last=observations[observations.length-1];
+  return `<svg class="market-sparkline" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" role="img" aria-label="${CATEGORIES[index].name} price history through turn ${last.turn}"><line x1="${pad}" y1="${H/2}" x2="${W-pad}" y2="${H/2}" stroke="#e3e8ef" stroke-dasharray="3 3"/><polyline fill="none" stroke="${CATEGORIES[index].color}" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" points="${points}"/><circle cx="${x(observations.length-1)}" cy="${y(last.prices[index])}" r="3.4" fill="${CATEGORIES[index].color}"/></svg>`;
+}
+let selectedHandIndex=-1; // -1 means no selection; 0–7 select a card; 8 selects the chance-card action.
+function render(){el('turnLabel').textContent=`Turn ${state.turn}`;el('playerCount').textContent=`${state.available.length+1} players`;el('market').innerHTML=CATEGORIES.map((cat,i)=>{return `<div class="tile" style="--rough-color:${cat.color}"><div>${cat.name}</div><div class="price">${i===0?(state.prices[i]*100).toFixed(0)+'%':formatPrice(state.prices[i])}<small style="font-size:.35em;font-weight:500">${i===0?"":" /kg"}</small></div><div class="market-average">Game average: <strong>${i===0?(averagePrice(i)*100).toFixed(0)+'%':averagePrice(i).toFixed(2)+' /kg'}</strong></div>${marketSparkline(i)}</div>`;}).join('');let total=0;
+  if(selectedHandIndex<-1||selectedHandIndex>8)selectedHandIndex=-1;
+  const selections=state.hand.map((id,i)=>{
+    const card=cardById(id),value=valueOf(card);total+=value;
+    return `<button type="button" class="hand-select" data-select="${i}" aria-pressed="${selectedHandIndex===i}" aria-label="Select ${escapeHtml(card.name)}, value ${displayCardValue(card)}"><span class="select-name">${escapeHtml(card.name)}</span><span class="select-value">${displayCardValue(card)}</span></button>`;
+  }).join('');
+  const selected=selectedHandIndex>=0&&selectedHandIndex<8?cardById(state.hand[selectedHandIndex]):null;
+  const detail=selected?`<div class="hand-detail carditem" data-card-index="${selectedHandIndex}"><div class="cardtop"><b>${escapeHtml(selected.name)}</b><span class="muted">#${selectedHandIndex+1}</span></div>${mixBar(selected.kg)}<div class="cardmeta">${mixText(selected.kg)}</div><div class="cardvalue"><b>Value: ${displayCardValue(selected)}</b></div><button class="detail-action" data-swap="${selectedHandIndex}" ${state.swappedThisTurn||swapTransitionActive?'disabled':''} aria-label="Swap ${escapeHtml(selected.name)} and choose an available hand">${state.swappedThisTurn||swapTransitionActive?'Updating…':'Swap'}</button></div>`
+    :selectedHandIndex===8?`<div class="hand-detail chancecard"><div><h3>Don't Swap</h3><p>Draw a chance card instead</p></div><button id="drawChance" class="detail-action" ${state.swappedThisTurn||swapTransitionActive?'disabled':''}>${state.swappedThisTurn||swapTransitionActive?'Updating…':'Draw'}</button></div>`
+    :`<div class="hand-detail"><p class="muted">Select a card on the left to view its details, or choose Don't Swap to draw a chance card. Choose Cash Out to end your game.</p></div>`;
+  el('hand').innerHTML=`<div class="hand-selector" aria-label="Select a card from your hand">${selections}<button type="button" class="hand-select hand-chance" data-select="8" aria-pressed="${selectedHandIndex===8}">Don't Swap · Draw chance</button></div>${detail}`;
+  el('total').textContent=total.toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2});el('resaleFootnote').textContent='* Card value is based on resale value rather than material value.';el('handCount').textContent=`${state.hand.length} cards in hand`;el('swapMessage').textContent=state.lastSwap||(swapTransitionActive?'Revealing your new card; prices update in 2 seconds.':'No plays yet.');save();}
+el('forceCardChoices').addEventListener('click',e=>{const b=e.target.closest('[data-force-card]');if(b)chooseForceTradeCard(Number(b.dataset.forceCard));});el('swapChoices').addEventListener('click',e=>{const b=e.target.closest('[data-choice]');if(b)confirmSwap(Number(b.dataset.choice));});el('cancelSwap').addEventListener('click',cancelSwap);el('swapPopup').addEventListener('click',e=>{if(e.target===el('swapPopup'))cancelSwap();});el('reset').addEventListener('click',cashOut);el('closeCash').addEventListener('click',advanceCashPopup);el('hand').addEventListener('click',e=>{const selector=e.target.closest('[data-select]');if(selector){selectedHandIndex=Number(selector.dataset.select);render();el('hand').querySelector(`[data-select="${selectedHandIndex}"]`)?.focus();return;}if(e.target.closest('#drawChance')){drawChance();return;}const btn=e.target.closest('[data-swap]');if(btn)swapCard(Number(btn.dataset.swap));});el('closeChance').addEventListener('click',closeChance);// Always begin on the splash screen with a clean, unplayed state.
+state=initialState();selectedHandIndex=-1;render();
+el('startGame').addEventListener('click',()=>{newGame();el('splashScreen').hidden=true;});
+</script>
+<script>
+/* Decorative Rough.js SVG frames: no impact on game state or button interaction. */
+(function(){
+  var selector='.panel,.tile,.hand-select,.hand-detail,.total,.last-play,button,.tag';
+  var pending=false;
+  var placements=new WeakMap();
+  function jitter(el){
+    if(!placements.has(el)){
+      // Restrained offsets preserve readability and prevent neighboring controls overlapping.
+      var isSmall=el.matches('button,.tag,.hand-select');
+      var range=isSmall?2:3;
+      var angle=0.3;
+      placements.set(el,{
+        x:(Math.random()*2-1)*range,
+        y:(Math.random()*2-1)*range,
+        a:(Math.random()*2-1)*angle
+      });
+    }
+    var p=placements.get(el);
+    el.style.setProperty('--jitter-x',p.x.toFixed(2)+'px');
+    el.style.setProperty('--jitter-y',p.y.toFixed(2)+'px');
+    el.style.setProperty('--jitter-angle',p.a.toFixed(2)+'deg');
+  }
+  function liftButtonText(el){
+    if(!el.matches('button'))return;
+    // Bare text nodes cannot be given a z-index. Wrap them without changing
+    // the button itself, its listeners, its accessibility label or its action.
+    Array.from(el.childNodes).forEach(function(node){
+      if(node.nodeType===3 && node.textContent.trim()){
+        var label=document.createElement('span');
+        label.className='rough-button-label';
+        el.insertBefore(label,node);
+        label.appendChild(node);
+      }
+    });
+  }
+  function frame(el){
+    if(!window.rough || !rough.svg || !el.isConnected || el.offsetWidth<8 || el.offsetHeight<8)return;
+    liftButtonText(el);
+    var old=el.querySelector(':scope > svg.rough-outline');
+    if(old)old.remove();
+    var w=el.clientWidth,h=el.clientHeight;
+    var svg=document.createElementNS('http://www.w3.org/2000/svg','svg');
+    svg.setAttribute('class','rough-outline');svg.setAttribute('viewBox','0 0 '+w+' '+h);
+    svg.setAttribute('aria-hidden','true');
+    var cs=getComputedStyle(el), color=cs.getPropertyValue('--rough-color').trim() || cs.borderTopColor;
+    if(!color || color==='rgba(0, 0, 0, 0)' || color==='transparent'){
+      color=el.matches('button,.hand-select')?(cs.color==='rgb(255, 255, 255)'?'#fff':'#34475e'):'#667b91';
+    }
+    var isButton=el.matches('button,.hand-select');
+    // Action controls use a heavier sage-green hand-drawn outline.
+    var isAction=el.matches('.hand-chance,.cash-out-action,#startGame,.detail-action,.popup button:not(.secondary)');
+    if(isAction && !el.disabled)color='#52724D';
+    var strokeWidth=isAction?4.2:(isButton?1.7:1.8);
+    var seed=(el.tagName.length*101+w*7+h*13)%100000;
+    var r=rough.svg(svg);
+    var inset=3;
+    var isSplash=false;
+    if(isSplash)color='#405c3e';
+    var isDark=el.matches('.hand-chance,.cash-out-action,#startGame,.detail-action') || el.matches('.popup button:not(.secondary)');
+    var selected=el.matches('.hand-select[aria-pressed="true"]');
+    var disabled=el.matches('button:disabled');
+    var fillColor=isSplash?'#d8e5a3':disabled?'#c6ccd5':selected?'#225d94':isDark?'#82977A':
+      el.matches('.tile')?color:
+      el.matches('.total,.last-play')?'#8db2d6':
+      el.matches('.hand-select,button')?'#7995b1':'#a9b6c5';
+    // Lighten hatch ink by 66% toward white, without altering outline strokes.
+    function lightenHatch(hex){
+      var m=/^#([0-9a-f]{6})$/i.exec(hex);
+      if(!m)return hex;
+      var rgb=m[1].match(/.{2}/g).map(function(v){return parseInt(v,16);});
+      return '#'+rgb.map(function(v){return Math.round(v+(.66*(255-v))).toString(16).padStart(2,'0');}).join('');
+    }
+    var isPopup=el.matches('.popup');
+    // Dense hatch strokes make the selected and action buttons visually distinctive.
+    var hatchGap=(selected||isDark)?4.3:el.matches('.tile')?7:6;
+    svg.appendChild(r.rectangle(inset,inset,Math.max(1,w-2*inset),Math.max(1,h-2*inset),{
+      stroke:color,strokeWidth:strokeWidth,roughness:isButton?1.15:1.4,bowing:1.1,
+      seed:seed,fill:isPopup?'none':(el.matches('.cash-out-action:not(:disabled)')?'#405B3B':lightenHatch(fillColor)),fillStyle:el.matches('.cash-out-action:not(:disabled)')?'solid':'hachure',hachureAngle:-42,
+      hachureGap:hatchGap,fillWeight:disabled?.45:(selected||isDark?1.4:.85)
+    }));
+    el.appendChild(svg);
+  }
+  function drawMaterialCharts(){
+    document.querySelectorAll('.rough-material-chart').forEach(function(chart){
+      if(chart.querySelector('svg') || !window.rough || !rough.svg)return;
+      var amounts=(chart.dataset.amounts||'').split(',').map(Number);
+      var total=amounts.reduce(function(a,b){return a+b;},0);
+      var width=chart.clientWidth,height=chart.clientHeight;
+      if(width<15||height<10||!total)return;
+      var svg=document.createElementNS('http://www.w3.org/2000/svg','svg');
+      svg.setAttribute('viewBox','0 0 '+width+' '+height);
+      svg.setAttribute('aria-hidden','true');
+      var drawer=rough.svg(svg),x=2,usable=width-4;
+      amounts.forEach(function(amount,i){
+        if(amount<=0)return;
+        var segmentWidth=usable*amount/total;
+        var categoryColor=CATEGORIES[i+1].color;
+        // Each component is outlined separately and hatched in its market color.
+        svg.appendChild(drawer.rectangle(x,3,Math.max(.5,segmentWidth),height-6,{
+          seed:157+i*103,stroke:categoryColor,strokeWidth:1.6,roughness:.85,
+          fill:categoryColor,fillStyle:'hachure',hachureAngle:-45,hachureGap:5,
+          fillWeight:1.1,bowing:.7
+        }));
+        x+=segmentWidth;
+      });
+      chart.appendChild(svg);chart.classList.add('rough-ready');
+    });
+  }
+  function draw(){pending=false;if(!window.rough || !rough.svg)return;
+    document.querySelectorAll(selector).forEach(function(el){
+      jitter(el);
+      if(!el.querySelector(':scope > svg.rough-outline'))frame(el);
+    });
+    drawMaterialCharts();
+  }
+  function schedule(){if(!pending){pending=true;requestAnimationFrame(draw);}}
+  var observer=new MutationObserver(function(records){
+    if(records.some(function(m){return Array.from(m.addedNodes).some(function(n){return n.nodeType===1 && !(n.classList && n.classList.contains('rough-outline')) && !(n.closest && n.closest('.rough-outline'));});}))schedule();
+  });
+  observer.observe(document.body,{childList:true,subtree:true});
+  window.addEventListener('resize',function(){document.querySelectorAll('svg.rough-outline,.rough-material-chart svg').forEach(function(el){el.remove();});document.querySelectorAll('.rough-material-chart').forEach(function(el){el.classList.remove('rough-ready');});schedule();});
+  schedule();
+  window.addEventListener('load',schedule);
+})();
+</script>
+</body></html>
