@@ -115,7 +115,7 @@ button:disabled .rough-outline{opacity:.35}
 /* Modal dialogs use an opaque solid surface; their sketch outlines remain. */
 .popup{background:#fffdfb!important}
 /* Keep lettering legible on transparent, sketch-hatched controls. */
-button,.hand-select,.hand-select[aria-pressed="true"],.hand-chance,.cash-out-action,.popup button,#startGame{color:#182536!important}
+button:not(.product-card),.hand-select,.hand-select[aria-pressed="true"],.hand-chance,.cash-out-action,.popup button,#startGame{color:#182536!important}
 button:disabled{color:#9ca3af!important;opacity:.52}
 .splash-content{color:#fff}
 /* Dark sage lettering contrasts with the pale sage Rough.js hatching. */
@@ -224,10 +224,10 @@ h2{font-size:1.65rem}
 .splash-content h1{margin-bottom:clamp(36px,6vh,64px)}
 .splash-gist{max-width:630px;margin:0 auto clamp(18px,3vh,30px);color:#203329;font-size:clamp(.95rem,1.6vw,1.13rem);line-height:1.4}
 .splash-gist p{margin:0 auto;max-width:60ch}
-.splash-gist p+p::before{content:"\1F4A1";display:block;font-size:1.12rem;line-height:1.2;margin:5px auto;color:#405B3B}
+.splash-gist p+p::before{content:"";display:block;width:24px;height:24px;margin:5px auto;background-image:url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+Cjxzdmcgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDExNSAxMTQiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgeG1sbnM6YWZmaW5pdHk9Imh0dHBzOi8vd3d3LmFmZmluaXR5LnN0dWRpby8iIHN0eWxlPSJmaWxsLXJ1bGU6ZXZlbm9kZDtjbGlwLXJ1bGU6ZXZlbm9kZDtzdHJva2UtbGluZWpvaW46cm91bmQ7c3Ryb2tlLW1pdGVybGltaXQ6MjsiPgogICAgPHVzZSB4bGluazpocmVmPSIjX0ltYWdlMSIgeD0iMyIgeT0iMyIgd2lkdGg9IjEwOXB4IiBoZWlnaHQ9IjEwNHB4Ii8+CiAgICA8ZGVmcz4KICAgICAgICA8aW1hZ2UgaWQ9Il9JbWFnZTEiIHdpZHRoPSIxMDlweCIgaGVpZ2h0PSIxMDRweCIgeGxpbms6aHJlZj0iZGF0YTppbWFnZS9wbmc7YmFzZTY0LGlWQk9SdzBLR2dvQUFBQU5TVWhFVWdBQUFHMEFBQUJvQ0FZQUFBRDdOWDdsQUFBQUNYQklXWE1BQUE3RUFBQU94QUdWS3c0YkFBQU9Ta2xFUVZSNG5PMmRlNVJWVlIzSFAyY0VSZ1lKRklZQlFVcWdmQ0NvWmVZVE04cG4yZ00wa3RBeVRYdVFhK1V6bDJtbXFKV1BNbHVXS3l0TktsR1hMelR4TFNHR3IwUVIzeUxxZ0NMUFpoQ2M0WjdiSDkrejNXZUd1VFAzY2M3WmU2N3pYZXV1ZXhudVBmdDN6dS84ZnZ2M1BsQmRHQWVzQlBMQUEwRGdscHgwVU9PYWdJVFJBTlJHbjNzaDVsVWRxbzFwbndLMlFzeHFwRWZTdWdXMmlkNERvSlVlU2VzVzJERjZ6d012dXlRa1RWUWIwM3BGN3dHdzJpVWhhYUxhbURZaWVsOFB2TzZTa0RSUmJVd3poc2NHZWlTdFcyQWJZRWowZVFXd3pDRXRxYUthbU5hQTNkTmFnZVVPYVVrVjFjUzBiWUZCeUhKY1NwV2ErMUJkVEJzQzlFUDdXa2dQMDdvRkdyQU1hM1JNUzZxb2hHbUhBa1B4SjFUVUcwbFhEYkFKZitoS0hKVXdiVFp3R3pBVCtDcnVMMUtBbGJUK1ZMRjZMQmVYWS9lTkVGZ0YzQVdjQ2d4MFJOTjVRQzZpNlZKSE5HU0NjaVd0QnZnWHNCYmQzUU9CdzlERnVna2JBOHdTclZoSjYrdGcvVzZEZzRIcmdlZlFQcEpERisxaDRNQ01hZmtWVnRKK21mSGEzUklqZ2JPQkpWaVYrVHp3dlF4cE9DOWFOMFRxdXdkRjRsamdLWFRoY3NqSlBUdWp0WCtMbGZTZlo3Um1tdWdEYkpmVllsOUdqTXRIcjNlQUM0RGhLYTk3SWRZNCtrM0thNldGM3NnMnVCcVlSOGFaaXQyQmU5QStaeTdrdjRFelVmb2tEZmZnQ3JxbnBQVUdKcU1iN1JGZ0hmYUdEN01tWmlpeUpKdGpST1NCSjRIZkk5OHVTVnlFdlVHdVNQallTU0pBZ2UzSndPK0EveUNYeVJoUjVoeWFvLzl6Z3RPQlp5SkM0b1M5Qjl3UGpFbG9uY3V4a25aK1FzZE1Db1pSWHdmK0Nzd0YxbUN2aDdrMjY0SEhnTDhCWDBPdWk3TlE0M0RnWE9RS3ZJdTl1QitnNnFrazBCZTRGcW1YbnlSMHpFb1FJTlYzQkdLQ1VYM0dTRE0zYnpPd0VMZ0ttQVRVdVNDMksweEM2bkVoY0xKald0TFlXM3NCaHdCL0FaNUFFbVZjRVNOVjY0QkZ3SitCbzRBdFMxbkFaYnh3T01sRTR3TjBJUUlrYmYyUjlBN0VSbXZxMGNVY0NBeU92bWZNNlhyZ0RlQXQ0SEVVNlNrSEJ3RVRVTUJoRERhY0YwWjBOQUZ2QWk4Q053RDNBaHNwSTBicU9zaGJLdXFCWFZGUjZxN0FBSlQ4ZkIrcGxhM1JIbENIS28xcjBWM2NHNXNGTURDTWpqUDlaWFJCTHlpRHRnWEFaOXY5YlFNS01yd2RIZmVlaU5hcXg5N0lHbndBZUFsYnF4OVhOMllqRDJPZjQvdEcrOC94NzdXMk85WUs0Skl5YWQwRS9BOFpFemNEVTBraER1cXJwSDBNT0JydGY3c2czODVJZy9GZGpKUTBvYnUzQmwyd0Q2TFA2eEZETmtXZlFadittdWh2NzZHd1d6UHdDV0EvRkJnSWdCYmdGT0NQSmRJOUMyVTdiaUpGaWZLUmFWOUMxdDhYZ1MydzZxc0ZYZWlsMGV0OUZEVXc5U0NyMEFhL0VjdThVakFFU2ZTVTZOL3pnTU1SVTN0UUFBSHdBNVF4aUt1eVY1QzVmQkxKK1hTRk1CSjRBYXN1VDBsNXZXNlBTNUcwR1BQNE5lRFh3R2N5cHVNUzdKNzROREFzNC9XN0JRTGd4MmovTVJkckx0bm40d3dHb0FpT2tiWnpIZEhoTlhZRkZtT3R1YnRJUHlQUUZVN0NCcnVkeGY5OHhwK3dlOWhzL0NnVjZJOGM3Und5Zmc1MlMwNWJ1SzU3bklxQ3FDR0tTVjZMSEZMWGFFTDdXWUI2QlBaMFMwN0gyQXZwOHF4eEU5YndLTlVuU2hzbll4M3ZCeDNUMGlIV29EelhsY0JZc3ZIZmhpUHpPb2Rpa09NeVdMTVVOS0FRbE1tK0grQ1duTFpvd2U0cElicVFOeU8xbFNienZvMGM0QkFGVDMxMDlQK0J0U0xQYzB6TGg2aEIwclVRV3plNEl3b2ZYWTFTQjhla3RQWUVWTHdTb0FpN2p4WEI4ZTRiNy95MXZzQnhLQ2k3a3JZQjFsWElxanNxd2ZVQ1pFcUhLUFIwWklMSFRoSlRzZHJnSHNlMGRJcERnV3RRamlrZVBXOUN0ZnVuSTMxZkNYWUdYbzJPL3d3S0VQdUk4YWc1TVVSMGxwU3NkSUU5VUE1b01aWng1dlVjcXVMZHQ4eGo3NGY4bnhCSnQ2K29SVW5MUE1xSjdlYVduT0x4YVJTUGU1YTIrYWdRN1VXM0E5T0IwU1VjODBnVWNUQ2xkVDdqRm5TdUxjQTNITk5TRWdMRWxCbm9JcHZhUE1POEhBcnd6a0lob05xT0QvTWhmaHI3M1ozcGtKd1k3c0RHUktjN3BxVWlIQXM4aEt5cmVNdVRxUzdxMzhYdkw0aDlmMFo2WkNhQ3E3RzBadG1iVUJEbGhyR3VSMUg0STFEQ2NqNEtRNEdrckttTDN3L0htdEsrMTB6RVM5cTJka1pGREpYR0hwOUY1Y3o3SXQvdUlsUkEweFhxbzdVRFZLSGtNMHdzTkE5czc1SVFnMTVkZjZWb3pLZTRORWFBZkIralVwT2tJUTI4amExUFdkUEZkOGVpVEh0TG1nUWxmY0dLYVJqSW96b09VQTNJaUU2KzZ3Tk0wMzJBMUtPcFdla0lqNkV5dkxtb212ck9UcjViTmx6ZDVSdXhKOS9QRVEzRklyNm4xZEk1RS9vakYybDNZQnB5eUJjajVqMk1ib0NLNFlwcHE3QW52NFVqR29xRlVYVWhxcnNzaEF2UjlqQWVSVTRHb1lxeWljQzNnUCtpbXNwYmdVZFJwS1VzS1hRcGFTQ2lrMnJBU0F1anNCbUl6Z3kzYzVEN2NnaUs0NDVDd1hkVGpqNFJuZTlreFB3M1VIYmpGZVRqTHFYSWFiQ3VtR1kyZEZQQzdUTUdZdXZ4KzNUeDNRMUlrbTVGR2U4alVJcXJIdGdCN1ltOWtjRXlGdFZWTnFGODNRYkVPRkJ6UmhNS0Y2NUdSYlh2RWhsRXJwaG1aakdHU0kzNGpGWjBjNWxCYWNWaU5YQmQ5Tm9TTWVoQVZDWFFnSG9RQXFScFJrZHJqSXYrRnE5MFhvMTgyZVZvVDd6ZXBhUTFvZWorRURxM3lGeGpKTHE1MWlJMVZnNDJvaGptTGRHLzkwU2RzTHVnanRrdDBYV293dzVseXlQSk5qTy9Sa1cvSGVxS2FVOGljVGR0U1dPUWJ2Y053OUNGRE5DZHZpU2g0ejRldlF6cWtMUnRoL2JCRVVqcVdxSy9iWUdZMmhmWUtTRWFTa2FBV25kRHBNdS82WXFRTGpBQmFZVThzZ3hkbFVRTVFwWFdoNEk3UXlTUDdscXp1WHNSSHVvQW81RUtkejM0YzFYMEF0eldQWnJrSXNnaDlSR2Z3MTZqRlM0SmljTWwweGFnZmEyRzlMdGh5c1VvYkdodWtVdEM0bkRKdElYWVpHb0RDdjM0QmxNVDBvUkhUOVJ3eWJRbXJJcHNRRFVwUG1GNzFGUmZneUw5NVpyN2ljTjFMZjh5ckUreXYyTmEybU1TTXI5RFpFRys1WlljQzlkTW00dHRzeDNxa3BBT2NBeTZvV3BRWTRpdnpuL2lDRkRZcGxBZHlEQ3NpbnlOelVjNnVNSVUxTGVkUXdaSXZWdHlzc053TklQUk1HVjlnZS9OeEJiT1pEVWJzak1FS1BwdUNwYXV3ck0rZzdTYzY3TlFnTlFVcytaUkIwcEhlREY2RDVCZjVCclRVRVRlUE8zdzcxU3hhZ3hReCtTREtEUmw2aG8zb0R0M1VvSGY3WUdpSTdub2ZZZlVLUzJNZzVBcllub1o3bkpJUytyWURRM3dNblh2cGdwNVBzVU5MWnVITGZRcFo4UlJFaGdIM0llbGZ4NmVkb0JXaW9Hb3BuOFI5dTdNb1RHdU03Q1B4dW9LSnlJck1vZnFLclpObk5MT01Sak5Lb24zNkUzTW1JYlVFUUFub09xamVIVnhJekNIMG1PSmZWQVVQWWNTZmRNU283UTRHQWt6L1FuSEYvaWVxZFhzZHBpSWF2YWJzU2ZhaXBoVjZHU0x3U1ZZMVhSemhUU1dnbXV3bHVJS09yZGdWNkp0d1Bkc082QzdheXpxR24yRnRsUGc1cU9CMHBYZWdZZWo3SENJRW9SWk9QNm5ZY2ZTdHFMWldJWE93eFRkaE1EZHFBZmJTNmtMVUNKd0pyS3E0czBXaldnaVFTa3RUcDJoRG1XMFF4VHIrMlJDeHkyRWlkaWhNeUdTdUVJWWhMU0xjYmhERkVBK0kyVWFTOFpVTkRLaWtiWU5oV3ZSSG5CUUNtcytnaTdpY2pUSkp5Mk1RUzFicG9WcEhzVjF0NTZQN1pBMXJjMlg0VmppQnFEK3NvY1JjOXIzWHM4QmZwamkrbk9qdGQ0aDNSRVZOMklsNW5sS0d6ZHhJRktQWmd4VGlMcUlCaWRNWTlFd1hZL3hhYVRMME9iN2xReldmd3c3dlNldFZNMGZzQXhycEx4R3dTRW9VbUwydVR4cVE5NDVJUnBMd2pyc0NiMkE5SGlXZWE1SG8vWFhvcExxcEhFaWttTGpUMTVKWmFwdEJuWWFSQTRWS3prSmVpOEFMaVo5UTZBOTRtTXFsdE4yem1QUTdyMGM3SWlDQUViZDMxbmg4UXgrZ2EzTEQ5SCttT3Iwb1k2STdrZmhpSHlhNklPR2lKa2VyemtvZXp3QUZYdldJcXV5RnZtSTYxQTV3RDhwYm5iVkhkakszUWZRak1uRkNkRStIVTFoM1Q1Mi9GTVNQTDYzTUxPb1ROTjlYTzEwTkFIY3ZONURnMW5Pb1hDdjI3blkvYWNSTlVna2pTbFlIemFQYnFTUkthempGWFpBdmsvOCtTc21EN2VSdGsrUmFHOHNtWDM0U2FUMnBtQzdjUTVEc2RBc252ajBJK1FTR05ybWtNTEFVWjg4K24yUUNqTlBoVGUwbVZ6Y0U4Z2x5S0VMc1JVS0xPK0pyRFl6L2oxQTZhRFhrY1QyUjJaNmdBeXJhYVRiWG5zcXlpZWFVTmV0eUFuM3BqQW9TWXpIVHVvMmQ2cVpTMldrNlcyMDBaK05tQlVnQ2IwSXplOWFIdnQrWEFKRGxHemRPNk56dVppMmo5ZTZHejIxb3lweEFQTFJRbVNVSEk4bUFxMW5jOVc0REtuQ1UxSHB0a25DWG82ZWxMZ1VTVnd1T21iVzQ5clB3TTVaQ1pHV3FFckczWWc5U2RNV1pOSkFONkNOUHM2OFBJcE1MRUttdDNGdWExQjZhREppZkpJVDlFckJhZGdlZ0diOEcwUmFNUUlVM1RlUHFqbzYrdHQ0SkNYN29NZUxuSUJVNFNJMk4wNldJT2I2TkNqNk95Z3NlS1pqT2xKQkhaWVJTNUM1ZkJscVlUWEp5UWRSK21ReWNwWi9ocTJkakROdk9icFlQc0IxYldtcUdJUXNyRHd5L2MraXJVRmhQcHVldG1lUVNYMGxrc1M3VVJMVFNOOUM1RXozSUVVY2dyVzRua0tQTERFTXVCOUZGNXJaM01rMncyUmVSU21qKzJMLzkwaW1aNUFSZkJweGREaWFDR0NxamVOdHFyTlFDY0orYUs4YmdTeXhvWWc1dlZFeTFvU1JqSjlYaDFwZWZaajFueGg4WXRyKzJHR1l0d0hmeFRKZ0s5VGxmMGYwQXNVbzkwSUZzVU5SMC9rUUZNUE1JMGE5aTUxWlVqWHdKU0x5QlNSTlcyT1RrcWRqOTdXMUtDTHlFaDJQTEFwUVEva0V0RGYyUTZyV3R3YzBWQld1d081UDEwVi8yd1ZiRXJBSkc5MTRCMW1NdHdQZng0OVM4bzhrWm1HTmpvZlE1TllBcWIyWnlPeVBoNlRpSWFwbEtCVnlGdjVvam84RVRrSjdUM3ljL0d4VS8yK1lkenhpNE5QWVVGYzhHN0FSdVFBK3RnRW5DbDhtd0QyRnJMeGFGTG52aFFMQm4wZnArNTFRQ090YTFIcTBBT1hSVmlLbURvNStNd3BGVUdiakpwR2JDWHhUSjZQUkpQSDlVWmxiSGh0UmFFR1JlbU9Bck1kMmtiNkpRbGZtS2IzVDBWUHJlNUFoRGtBUmpqZXhSa2o3ckhXK3dIdUkxR1RWd2hmMTJCNUwwZjUxTHhwdTJZSVlhUGE3VFdneW0zR3M0d25UR2xSWHNwQXFUVHo2cGg2N3dqRGtnOVdoUHVoYTRPTklyZFlqUDI4RVl1WnhGTzQrN1lGbkNQQXIwcE00L2c5T0ZWQ3FLQUFCK1FBQUFBQkpSVTVFcmtKZ2dnPT0iLz4KICAgIDwvZGVmcz4KPC9zdmc+Cg==");background-repeat:no-repeat;background-position:center;background-size:contain}
 .splash-gist-heading{font-size:clamp(1.2rem,2.2vw,1.55rem);letter-spacing:.025em}
 .splash-footer{position:static;left:auto;bottom:auto;transform:none;margin: auto auto 0;flex:0 0 auto}
-@media(max-width:600px){.splash-screen{padding:18px 12px}.splash-content{padding:0 0 20px!important}.splash-gist{font-size:.93rem;line-height:1.33}.splash-gist p+p::before{margin:3px auto;font-size:1rem}.splash-content h1{font-size:clamp(2.5rem,10vw,4rem)}}
+@media(max-width:600px){.splash-screen{padding:18px 12px}.splash-content{padding:0 0 20px!important}.splash-gist{font-size:.93rem;line-height:1.33}.splash-gist p+p::before{margin:3px auto;width:21px;height:21px}.splash-content h1{font-size:clamp(2.5rem,10vw,4rem)}}
 /* V97: vertically center the title, instructions and Start Game control in the space above the credits. */
 .splash-screen{min-height:100dvh;box-sizing:border-box}
 .splash-content{flex:1 0 auto;display:flex;flex-direction:column;align-items:center;justify-content:center}
@@ -246,10 +246,202 @@ h2{font-size:1.65rem}
 .game-columns > .market-region > h2{margin:0 0 12px;line-height:1.3}
 .game-columns > .market-region > .panel{margin-top:0}
 .splash-footer td.splash-disclosure{width:100%;font-size:10pt;font-weight:400;line-height:1.35;text-align:center;padding:14px 12px 0;vertical-align:top}
-</style></head><body><div id="splashScreen" class="splash-screen" role="dialog" aria-modal="true" aria-labelledby="splashTitle"><div class="splash-content"><h1 id="splashTitle">The Light Trade</h1><div class="splash-gist" aria-label="How to play"><p class="splash-gist-heading"><strong>The gist</strong></p><p>Get an 8-card hand of old light fixtures to re-use, recycle, or landfill</p><p>Each card has a value, based on the materials it contains, which changes with every turn</p><p>Maximize the value of your hand by swapping with other players, drawing a Chance card, or cashing out</p><p>Cashing out fixes the value of your hand and ends play</p><p>The game ends when every player has cashed out</p></div><button type="button" id="startGame">Start Game</button></div><table class="splash-footer" aria-label="Game credits"><tbody><tr><td>Developed by<strong>Team Eureka</strong><img class="team-bulb" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMjIiIGhlaWdodD0iNTQyIiB2aWV3Qm94PSIwIDAgMzIyIDU0MiI+Cjx0aXRsZT5BQlNUIGxpZ2h0IGJ1bGI8L3RpdGxlPgo8ZyBmaWxsPSJub25lIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2UtbGluZWNhcD0icm91bmQiPgo8IS0tIG91dGVyIGdsYXNzOiBoZWF2aWVyIGJsYWNrIGxpbmUgLS0+CjxwYXRoIGQ9Ik0gODggNDE4IEMgNzggNDA1IDcyIDM3MSA2NCAzMzggTCAzNCAxOTkgQyAxOCAxMjQgMzcgNjkgNzggNDQgQyAxMjUgMTYgMTk0IDIzIDIzNyA1MSBDIDI3NyA3NyAyOTcgMTMwIDI5MCAxODYgTCAyNTggMzM3IEMgMjUwIDM3MiAyNDYgNDA4IDIzMCA0MjMgQyAyMjAgNDMzIDIwNSA0MzMgMTkwIDQzMyBMIDEyNyA0MzMgQyAxMDggNDMzIDk2IDQyOSA4OCA0MTggWiIgc3Ryb2tlPSIjMjkyOTI5IiBzdHJva2Utd2lkdGg9IjIuNjUiLz4KPCEtLSBpbnRlcm5hbCBzdXBwb3J0LCBzdWJ0bGUgZ3JheSAtLT4KPHBhdGggZD0iTSAxNTMgODggTCAxNjcgODggTCAxNzYgMTI4IEwgMTc2IDQwOCBNIDE1MyA4OCBMIDE0NSAxMjUgTCAxNDUgNDA4IiBzdHJva2U9IiNhMWExYTEiIHN0cm9rZS13aWR0aD0iMS42Ii8+CjxwYXRoIGQ9Ik0gMTQ1IDE3MSBMIDE0NSA0MDggTSAxNzYgMTY5IEwgMTc2IDQwOCIgc3Ryb2tlPSIjYjViNWI1IiBzdHJva2Utd2lkdGg9IjEuMyIvPgo8IS0tIGJhc2UgY29sbGFyIC0tPgo8cGF0aCBkPSJNIDExNiA0MDggSCAyMDUgViA0NTggSCAxMTYgWiIgc3Ryb2tlPSIjYTBhMGEwIiBzdHJva2Utd2lkdGg9IjEuNzUiLz4KPHBhdGggZD0iTSAxMTYgNDMzIEggMjA1IiBzdHJva2U9IiM5YjliOWIiIHN0cm9rZS13aWR0aD0iMS42Ii8+CjwhLS0gdGhyZWFkZWQgc2NyZXcgLS0+CjxwYXRoIGQ9Ik0gMTE2IDQ1OCBMIDEwMyA0NjcgTCAxMTcgNDc2IEwgMTA1IDQ4NSBMIDExNyA0OTQgTCAxMDYgNTAyIEwgMTE4IDUxMSBMIDEyMiA1MTkgSCAxOTkgTCAyMDQgNTExIEwgMjE2IDUwMiBMIDIwNCA0OTQgTCAyMTcgNDg1IEwgMjA0IDQ3NiBMIDIxOCA0NjcgTCAyMDUgNDU4IiBzdHJva2U9IiNhNWE1YTUiIHN0cm9rZS13aWR0aD0iMS43Ii8+CjxwYXRoIGQ9Ik0gMTE3IDQ3NiBIIDIwNCBNIDExNyA0OTQgSCAyMDQgTSAxMTggNTExIEggMjA0IiBzdHJva2U9IiNiMGIwYjAiIHN0cm9rZS13aWR0aD0iMS4xNSIvPgo8L2c+CjwhLS0gc2VyaWYgbGV0dGVyaW5nOiBmaW5lIGRhcmsgb3V0bGluZXMsIHdoaXRlIGludGVyaW9yIC0tPgo8ZyBmaWxsPSJ3aGl0ZSIgc3Ryb2tlPSIjMjAyMDIwIiBzdHJva2Utd2lkdGg9IjEuNyIgcGFpbnQtb3JkZXI9InN0cm9rZSBmaWxsIiBmb250LWZhbWlseT0iTGliZXJhdGlvbiBTZXJpZiwgVGltZXMgTmV3IFJvbWFuLCBzZXJpZiIgZm9udC13ZWlnaHQ9IjQwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+Cjx0ZXh0IHg9IjE2MSIgeT0iMTYyIiBmb250LXNpemU9IjczIj5BPC90ZXh0Pgo8dGV4dCB4PSIxNjEiIHk9IjI0MCIgZm9udC1zaXplPSI3NSI+QjwvdGV4dD4KPHRleHQgeD0iMTYxIiB5PSIzMTciIGZvbnQtc2l6ZT0iNzYiPlM8L3RleHQ+Cjx0ZXh0IHg9IjE2MSIgeT0iMzk1IiBmb250LXNpemU9Ijc2Ij5UPC90ZXh0Pgo8L2c+Cjwvc3ZnPgo=" alt="Abstract light bulb illustration" height="100"></td><td>Developed for<strong>FND2007 Community Practice</strong><img src="https://upload.wikimedia.org/wikipedia/commons/1/11/The_BAC_Main_Logo.png" alt="Boston Architectural College logo" loading="eager"></td></tr><tr><td colspan="2" class="splash-disclosure">All creative elements of this game, including rules and graphics, were created by human beings. The tech platform upon which it runs—which manages the 'internal plumbing' of the game, including user communication, maintenance of state, scoring, and randomization—is human-designed and build with AI-assisted tools.</td></tr></tbody></table></div><main class="wrap">
+
+
+/* Version 136: product photography on the flipped card, above the Swap button. */
+.product-card-back{gap:7px}
+.product-card-back .card-product-image{display:block;width:100%;height:clamp(64px,9vw,112px);min-height:0;flex:1 1 76px;object-fit:contain;object-position:center;margin:0 auto;border-radius:5px}
+.product-card-back .cardvalue{margin-top:0}
+@media(max-width:700px){.product-card-back{gap:5px}.product-card-back .card-product-image{height:70px;flex:1 1 55px}}
+
+/* Version 111: overlapping, diagonal eight-card fan with an in-place flip. */
+.hand-layout{display:block;min-width:0}
+.product-fan{--card-w:clamp(180px,42%,248px);--fan-x:clamp(19px,5.6%,41px);--fan-y:40px;position:relative;width:100%;height:calc(350px + 7 * var(--fan-y) + 18px);margin:12px 0 16px;isolation:isolate}
+.product-card{position:absolute;top:calc(var(--card-i) * var(--fan-y));left:calc(var(--card-i) * var(--fan-x));width:var(--card-w);height:350px;padding:0;border:0;background:transparent;perspective:1100px;z-index:calc(var(--card-i) + 1);cursor:pointer;text-align:left;transform:none!important;box-shadow:none!important;outline:none;color:#20271e!important;transition:top .24s ease,left .24s ease,filter .24s ease}
+.product-card:hover{filter:brightness(.98)}
+.product-card.is-flipped{z-index:30;top:calc(var(--card-i) * var(--fan-y) - 10px)}
+.product-card:focus-visible{outline:3px solid #52724d;outline-offset:4px;border-radius:15px}
+.product-card-inner{display:block;position:relative;width:100%;height:100%;transition:transform .55s cubic-bezier(.2,.7,.2,1);transform-style:preserve-3d}
+.product-card.is-flipped .product-card-inner{transform:rotateY(180deg)}
+.product-card-face{position:absolute;inset:0;display:flex;flex-direction:column;padding:13px 12px 15px;border:0;border-radius:16px;background:#fff49b;backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;box-shadow:2px 4px 5px #534c2330}
+.product-card-back{transform:rotateY(180deg);background:#ffffff;gap:12px}
+.product-card-title{font-size:clamp(.79rem,1.05vw,1.02rem);font-weight:750;line-height:1.35;color:#22291d;overflow-wrap:break-word}
+.product-card-front .product-card-title{min-height:2.6em}
+.product-card-front .product-card-price{position:absolute;right:13px;top:12px;margin:0;font-weight:800;font-size:clamp(.79rem,1.05vw,1.02rem);text-align:right;white-space:nowrap;max-width:44%;z-index:2}.product-card-front .product-card-title{padding-right:45%;min-height:2.6em}.product-card-face > :not(.rough-card-art){position:relative;z-index:2}.product-card-face > .product-card-price{position:absolute}.rough-card-art{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;overflow:visible}.product-card-face{isolation:isolate}
+.product-card-back .product-card-title{font-size:1rem}
+.product-card-back .rough-material-chart{height:26px;margin:0;flex-shrink:0}
+.product-card-back .cardmeta{font-size:.82rem;line-height:1.55;color:#263427;overflow-wrap:break-word}
+.product-card-back .cardvalue{font-weight:750;margin-top:auto;font-size:1.1rem}
+.product-card-back .flip-hint{font-size:.72rem;color:#58634b;margin-top:2px}
+.product-card.is-flipped .product-card-front{pointer-events:none}
+.product-card:not(.is-flipped) .product-card-back{pointer-events:none}
+.product-fan-actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:8px 0 4px}
+.product-fan-actions .detail-action,.product-fan-actions .hand-chance{min-height:60px;min-width:170px;margin:0}
+.product-fan-actions .detail-action{width:auto}
+.product-card.swap-highlight{animation:fan-reveal 2s ease-in-out both}
+@keyframes fan-reveal{0%,70%{filter:drop-shadow(0 0 12px #e9ad24)}100%{filter:none}}
+@media(max-width:700px){.product-fan{--card-w:clamp(160px,47%,230px);--fan-x:clamp(17px,5.3%,33px);--fan-y:35px;height:calc(320px + 7 * var(--fan-y) + 15px)}.product-card{height:320px}.product-card-face{padding:11px 9px}.product-card-title{font-size:.84rem}.product-fan-actions .detail-action,.product-fan-actions .hand-chance{min-width:145px}}
+@media(prefers-reduced-motion:reduce){.product-card,.product-card-inner{transition:none}}
+
+/* V115: only the Rough.js circle outlines Swap; no rectangular overlay. */
+.card-swap-circle::before,.card-swap-circle::after{border:0!important;outline:0!important;box-shadow:none!important;content:none!important}
+/* V114: hand-drawn circular Swap action above the card value. */
+.product-card-back{position:absolute;padding-bottom:166px}
+.card-swap-circle,.card-swap-circle:not(:disabled){
+  position:absolute!important;left:50%;bottom:86px;transform:translateX(-50%)!important;
+  width:72px;height:72px;min-height:72px;padding:0!important;
+  display:flex;align-items:center;justify-content:center;
+  border:0!important;border-radius:50%!important;
+  background:#e1ebd9!important;color:#243F2B!important;
+  font-size:1.08rem!important;font-weight:800;letter-spacing:.02em;
+  box-shadow:3px 4px 0 rgba(54,79,49,.2)!important;z-index:5!important;
+  cursor:pointer;
+}
+.card-swap-circle:disabled{opacity:.48;cursor:not-allowed;box-shadow:none!important}
+.card-swap-circle:focus-visible{outline:3px solid #243F2B;outline-offset:3px}
+.product-card-back .cardvalue{position:absolute;bottom:43px;left:0;right:0;text-align:center;margin:0;font-size:1.05rem}
+.product-card-back .flip-hint{position:absolute;bottom:7px;left:0;right:0;text-align:center;font-size:.72rem}
+
+/* V116: two circular actions in a dedicated column between hand and market. */
+@media(min-width:601px){.game-columns{display:grid!important;grid-template-columns:minmax(0,1.24fr) 112px minmax(0,1fr)!important;gap:18px!important;align-items:start}.game-columns>.hand-unboxed{grid-column:1;min-width:0}.game-columns>.action-rail{grid-column:2}.game-columns>.market-region{grid-column:3;min-width:0}}
+.action-rail{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:25px;margin-top:76px;min-width:0}
+.rail-circle,.rail-circle:not(:disabled){position:relative!important;display:flex!important;align-items:center!important;justify-content:center!important;text-align:center!important;width:104px!important;height:104px!important;min-height:104px!important;min-width:104px!important;max-width:104px!important;padding:13px!important;border:0!important;border-radius:50%!important;background:transparent!important;box-shadow:3px 5px 5px #344a2a33!important;transform:none!important;font-size:1rem!important;font-weight:800!important;line-height:1.2!important;white-space:normal!important;letter-spacing:0!important;z-index:1}
+.rail-circle.hand-chance:not(:disabled){color:#243F2B!important}.rail-circle.cash-out-action:not(:disabled){color:#fff!important;text-shadow:0 1px 1px #321722}
+.rail-circle:disabled{opacity:.48;box-shadow:none!important}
+.rail-circle > svg.rough-outline{position:absolute!important;inset:0!important;z-index:0!important;pointer-events:none}
+.rail-circle > .rough-button-label{z-index:2!important;position:relative}
+/* V134: vertically center the Swap label inside its circular button. */
+.card-swap-circle > .rough-button-label{position:relative;z-index:2;align-self:center!important;margin:0!important;line-height:1.2;text-align:center}
+.card-swap-circle{align-items:center!important;justify-content:center!important;padding:0!important}
+@media(max-width:600px){.game-columns>.action-rail{order:1;display:flex;flex-direction:row;justify-content:center;gap:24px;margin:14px auto 8px;width:100%}.game-columns>.market-region{order:2}}
+
+/* V117: larger circular actions with reliably foregrounded labels. */
+@media(min-width:601px){.game-columns{grid-template-columns:minmax(0,1.24fr) 178px minmax(0,1fr)!important}}
+.action-rail{gap:28px}
+.rail-circle,.rail-circle:not(:disabled){width:166px!important;height:166px!important;min-width:166px!important;min-height:166px!important;max-width:166px!important;padding:24px!important;font-size:1.42rem!important;line-height:1.18!important;isolation:isolate!important;overflow:visible!important}
+.rail-circle > svg.rough-outline{z-index:0!important}
+.rail-circle > .rough-button-label{position:relative!important;z-index:10!important;display:block!important;pointer-events:none!important;color:inherit!important;text-align:center!important}
+.rail-circle.hand-chance:not(:disabled){color:#203C29!important;text-shadow:0 1px 0 rgba(255,255,255,.65)!important}
+.rail-circle.cash-out-action:not(:disabled){color:#FFFFFF!important;text-shadow:0 1px 2px rgba(35,10,20,.7)!important}
+@media(max-width:380px){.rail-circle,.rail-circle:not(:disabled){width:clamp(132px,43vw,166px)!important;height:clamp(132px,43vw,166px)!important;min-width:0!important;min-height:0!important;max-width:none!important;padding:15px!important;font-size:1.18rem!important}.game-columns>.action-rail{gap:12px}}
+
+/* V118: center both circular actions in the middle column and show the total unboxed beneath. */
+@media(min-width:601px){
+ .game-columns{grid-template-columns:minmax(0,1.24fr) 190px minmax(0,1fr)!important}
+ .game-columns>.action-rail{width:190px;justify-self:center;align-self:start;margin-top:76px}
+}
+.action-rail{align-items:center!important;justify-content:flex-start;gap:28px}
+.rail-total{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:5px;width:100%;margin-top:6px;padding:0;background:transparent;border:0;box-shadow:none;color:#243F2B}
+.rail-total b{font-size:1rem;line-height:1.3}
+.rail-total strong{font-size:2rem;font-variant-numeric:tabular-nums;line-height:1.2}
+.rail-total .note{font-size:.83rem}
+@media(max-width:600px){
+ .game-columns>.action-rail{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));justify-items:center;align-items:start;column-gap:16px;row-gap:16px;width:100%;margin:18px auto 12px}
+ .action-rail>.rail-total{grid-column:1/-1;margin:0 auto 5px}
+}
+
+/* V119: unboxed Last play, centered directly beneath Total hand value. */
+.action-rail>.rail-last-play{width:100%;max-width:190px;margin:0;padding:0;border:0!important;border-radius:0;background:transparent!important;box-shadow:none!important;text-align:center;display:flex;flex-direction:column;align-items:center;gap:5px;transform:none!important}
+.rail-last-play .last-play-label{font-size:1rem;font-weight:750;line-height:1.3;color:#243F2B;margin:0}
+.rail-last-play .message{font-size:.9rem;line-height:1.4;color:#243F2B;text-align:center;overflow-wrap:anywhere;margin:0}
+@media(max-width:600px){.action-rail>.rail-last-play{grid-column:1/-1;justify-self:center;max-width:300px;margin:0 auto 5px}}
+
+/* V120: expanded chance action label with proportionate circular controls. */
+@media(min-width:601px){
+ .game-columns{grid-template-columns:minmax(0,1.24fr) 212px minmax(0,1fr)!important}
+ .game-columns>.action-rail{width:212px!important}
+}
+.rail-circle,.rail-circle:not(:disabled){width:188px!important;height:188px!important;min-width:188px!important;min-height:188px!important;max-width:188px!important;padding:27px!important;font-size:1.28rem!important;line-height:1.22!important}
+.rail-circle > .rough-button-label{position:relative!important;z-index:10!important;color:inherit!important}
+@media(max-width:600px){.game-columns>.action-rail{column-gap:10px!important}}
+@media(max-width:410px){
+ .rail-circle,.rail-circle:not(:disabled){width:min(43vw,174px)!important;height:min(43vw,174px)!important;min-width:0!important;min-height:0!important;max-width:none!important;padding:14px!important;font-size:clamp(.91rem,3.6vw,1.16rem)!important}
+}
+
+/* V127: opaque page-colored background for the circular Don't swap control. */
+.rail-circle.hand-chance,.rail-circle.hand-chance:not(:disabled){background:#FFF7DA!important;}
+
+/* V122: switch to a full-width stacked dashboard before three columns become cramped. */
+@media (min-width:601px) and (max-width:1449px){
+  .game-columns{display:flex!important;flex-direction:column!important;gap:18px!important;align-items:stretch!important}
+  .game-columns>.hand-unboxed{order:0!important;width:100%!important;min-width:0;grid-column:auto!important}
+  .game-columns>.action-rail{order:1!important;display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;justify-items:center!important;align-items:start!important;column-gap:24px!important;row-gap:18px!important;width:min(100%,520px)!important;min-width:0!important;margin:8px auto!important;justify-self:center!important;grid-column:auto!important}
+  .action-rail>.rail-total,.action-rail>.rail-last-play{grid-column:1/-1!important;justify-self:center!important;margin:0 auto!important}
+  .game-columns>.market-region{order:2!important;width:100%!important;min-width:0;grid-column:auto!important}
+  #market.grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+  .wrap{max-width:1060px}
+}
+@media (min-width:601px) and (max-width:850px){
+  #market.grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+
+/* V123: match the splash to the main game's paper and circular chance action. */
+.splash-screen{background:#FFF7DA!important;color:#203329!important}
+#startGame,#startGame:not(:disabled){
+  display:flex!important;align-items:center!important;justify-content:center!important;
+  position:relative!important;isolation:isolate!important;
+  width:188px!important;height:188px!important;min-width:188px!important;min-height:188px!important;
+  max-width:188px!important;padding:24px!important;
+  border:0!important;border-radius:50%!important;background:transparent!important;
+  color:#203C29!important;text-shadow:0 1px 0 rgba(255,255,255,.65)!important;
+  font-size:1.45rem!important;font-weight:800!important;line-height:1.18!important;
+  box-shadow:4px 6px 7px rgba(54,79,49,.2)!important;
+  white-space:normal!important;cursor:pointer;
+}
+#startGame > svg.rough-outline{position:absolute!important;inset:0!important;z-index:0!important;pointer-events:none!important}
+#startGame > .rough-button-label{position:relative!important;z-index:10!important;pointer-events:none!important;color:inherit!important}
+@media(max-width:380px){#startGame,#startGame:not(:disabled){width:166px!important;height:166px!important;min-width:166px!important;min-height:166px!important;font-size:1.25rem!important}}
+
+/* V124: guided second introduction, spotlighting the actual dealt cards. */
+.tutorial-shade{position:fixed;inset:0;z-index:15000;background:rgba(17,25,22,.76);pointer-events:auto}
+.tutorial-shade[hidden]{display:none!important}
+.tutorial-highlight{position:relative!important;z-index:15001!important;pointer-events:none!important;isolation:isolate}
+.action-rail.tutorial-highlight{z-index:auto!important;isolation:auto!important}
+.action-rail.tutorial-highlight>.rail-circle{position:relative!important;z-index:15001!important;pointer-events:none!important}
+.action-rail.tutorial-highlight>.rail-total,.action-rail.tutorial-highlight>.rail-last-play{position:relative;z-index:0}
+.tutorial-callout[hidden]{display:none!important}
+.tutorial-callout{position:fixed;z-index:15002;max-width:min(330px,calc(100vw - 36px));color:#fff;text-align:left;font-size:1.12rem;line-height:1.45;pointer-events:auto;text-shadow:0 1px 3px rgba(0,0,0,.35)}
+.tutorial-callout h2{font-family:'Architects Daughter',cursive;font-size:2rem;margin:0 0 12px;color:#fff}
+.tutorial-callout p{margin:0 0 20px}
+.tutorial-callout button{background:#fff!important;color:#243F2B!important;border:0!important;padding:12px 25px;border-radius:30px;font-weight:750;cursor:pointer;min-height:48px}
+.tutorial-continue{font-family:'Architects Daughter',cursive;font-size:1.05rem;font-weight:700;color:#fff;margin-top:20px!important;text-decoration:underline;text-underline-offset:5px}
+@media(max-width:700px){.tutorial-callout{text-align:center;font-size:1rem}.tutorial-callout h2{font-size:1.7rem}}
+/* V129: pin both spotlighted actions at the top of the viewport during step three. */
+.action-rail.tutorial-highlight{
+  position:fixed!important;top:max(14px,env(safe-area-inset-top))!important;
+  left:50%!important;right:auto!important;transform:translateX(-50%)!important;
+  z-index:15001!important;display:flex!important;flex-direction:row!important;
+  align-items:center!important;justify-content:center!important;
+  gap:clamp(12px,3vw,28px)!important;width:max-content!important;
+  max-width:calc(100vw - 20px)!important;margin:0!important;
+  padding:0!important;grid-column:auto!important;isolation:isolate!important;
+}
+.action-rail.tutorial-highlight>.rail-total,.action-rail.tutorial-highlight>.rail-last-play{display:none!important}
+.action-rail.tutorial-highlight>.rail-circle{flex:0 0 auto!important}
+@media(max-width:420px){
+ .action-rail.tutorial-highlight>.rail-circle{width:min(43vw,170px)!important;height:min(43vw,170px)!important;min-width:0!important;min-height:0!important;padding:12px!important;font-size:clamp(.88rem,3.7vw,1.15rem)!important}
+}
+
+/* V131: a 15-by-5 perimeter of hand-drawn dots framing the splash title. */
+.splash-title-frame{position:relative;width:min(94vw,750px);aspect-ratio:3/1;display:flex;align-items:center;justify-content:center;margin:0 auto 38px;isolation:isolate}
+.splash-title-dots{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.splash-title-frame #splashTitle{position:relative;z-index:1;margin:0!important;font-size:clamp(2rem,6.5vw,4.8rem)!important;line-height:1.12!important;white-space:nowrap}
+.splash-content:has(.splash-title-frame){width:min(100%,800px)!important;max-width:800px!important}
+@media(max-width:550px){.splash-title-frame{width:min(95vw,550px);margin-bottom:26px}.splash-title-frame #splashTitle{font-size:clamp(1.75rem,7vw,3.2rem)!important}}
+
+/* Three-position marquee: the illuminated bulbs advance clockwise every 420ms. */
+.splash-title-dots .marquee-dot{animation-duration:1.26s;animation-timing-function:steps(1,end);animation-iteration-count:infinite}
+.splash-title-dots .marquee-phase-0{animation-name:marqueePhase0}
+.splash-title-dots .marquee-phase-1{animation-name:marqueePhase1}
+.splash-title-dots .marquee-phase-2{animation-name:marqueePhase2}
+@keyframes marqueePhase0{0%,33.332%{fill:#181818}33.333%,66.666%{fill:url(#splashDotGlow)}66.667%,100%{fill:#181818}}
+@keyframes marqueePhase1{0%,66.666%{fill:#181818}66.667%,99.999%{fill:url(#splashDotGlow)}100%{fill:#181818}}
+@keyframes marqueePhase2{0%,33.332%{fill:url(#splashDotGlow)}33.333%,100%{fill:#181818}}
+@media(prefers-reduced-motion:reduce){.splash-title-dots .marquee-dot{animation:none}}
+</style></head><body><div id="splashScreen" class="splash-screen" role="dialog" aria-modal="true" aria-labelledby="splashTitle"><div class="splash-content"><div class="splash-title-frame"><svg class="splash-title-dots" viewBox="0 0 750 250" preserveAspectRatio="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="splashDotGlow" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#FFFFFF"/><stop offset="42%" stop-color="#FFFFFF"/><stop offset="100%" stop-color="#F4FF0F"/></radialGradient></defs><path class="marquee-dot marquee-phase-0" d="M 35.4 24.9 L 34.9 28.5 L 33.6 32.2 L 29.9 33.4 L 26.4 34.6 L 23.0 32.9 L 20.1 31.2 L 17.2 28.7 L 16.8 24.9 L 17.2 21.1 L 19.7 18.3 L 22.7 16.2 L 26.4 16.0 L 29.8 16.7 L 32.4 18.8 L 34.5 21.5 L 35.8 24.9 Z" fill="#181818" stroke="#181818" stroke-width="1.25" stroke-linejoin="round"/><path class="marquee-dot marquee-phase-1" d="M 88.4 24.8 L 87.4 29.1 L 83.9 31.7 L 81.4 35.4 L 77.0 35.5 L 73.0 34.6 L 70.0 31.8 L 67.8 28.6 L 67.2 24.8 L 67.9 21.0 L 69.0 16.8 L 73.0 15.1 L 77.0 13.5 L 81.5 14.0 L 84.8 17.1 L 86.4 20.9 L 87.1 24.8 Z" fill="#181818" stroke="#181818" stroke-width="1.25" stroke-linejoin="round"/><path class="marquee-dot marquee-phase-2" d="M 139.0 24.0 L 136.7 27.6 L 135.6 31.6 L 131.5 32.3 L 128.0 33.9 L 124.3 32.9 L 120.2 31.7 L 118.8 27.8 L 117.8 24.0 L 118.2 19.9 L 120.7 16.7 L 123.9 14.1 L 128.0 13.3 L 131.5 15.5 L 134.6 17.4 L 137.1 20.2 L 137.8 24.0 Z" fill="url(#splashDotGlow)" stroke="#181818" stroke-width="1.25" stroke-linejoin="round"/><path class="marquee-dot marquee-phase-0" d="M 189.3 22.8 L 188.1 27.3 L 185.0 30.6 L 181.8 33.9 L 177.2 34.7 L 172.6 34.1 L 169.4 30.6 L 166.1 27.4 L 166.3 22.8 L 166.7 18.4 L 169.6 15.2 L 173.0 12.6 L 177.2 10.4 L 182.0 11.3 L 184.8 15.2 L 188.1 18.3 L 187.7 22.8 Z" fill="#181818" stroke="#181818" stroke-width="1.25" stroke-linejoin="round"/><path class="marquee-dot marquee-phase-1" d="M 234.3 23.8 L 234.8 27.7 L 232.9 31.3 L 228.9 32.3 L 225.4 33.3 L 221.4 33.3 L 218.1 31.0 L 215.9 27.7 L 215.9 23.8 L 215.5 19.7 L 218.0 16.4 L 221.4 14.2 L 225.4 13.7 L 228.9 15.3 L 232.9 16.2 L 234.6 20.0 L 235.2 23.8 Z" fill="#181818" stroke="#181818" stroke-width="1.25" stroke-linejoin="round"/><path class="marquee-dot marquee-phase-2" d="M 285.2 24.9 L 284.8 28.5 L 282.5 31.2 L 280.0 34.2 L 276.2 33.9 L 272.4 34.1 L 269.2 31.9 L 266.8 28.8 L 265.9 24.9 L 267.2 21.2 L 269.8 18.6 L 272.2 15.3 L 276.2 15.0 L 279.9 16.0 L 283.5 17.6 L 285.7 21.0 L 286.0 24.9 Z" fill="url(#splashDotGlow)" stroke="#181818" stroke-width="1.25" stroke-linejoin="round"/><path class="marquee-dot marquee-phase-0" d="M 333.4 23.0 L 332.7 26.2 L 331.8 29.9 L 328.2 31.0 L 324.9 32.8 L 321.5 31.3 L 318.7 29.2 L 315.4 27.0 L 315.8 23.0 L 316.9 19.7 L 318.0 16.1 L 321.2 14.0 L 324.9 12.7 L 328.7 13.8 L 331.4 16.5 L 333.8 19.3 L 333.7 23.0 Z" fill="#181818" stroke="#181818" stroke-width="1.25" stroke-linejoin="round"/><path class="marquee-dot marquee-phase-1" d="M 384.9 23.9 L 384.1 27.9 L 381.2 30.7 L 378.4 33.5 L 374.4 33.5 L 370.9 32.4 L 367.9 30.5 L 366.1 27.4 L 364.2 23.9 L 365.7 20.3 L 368.1 17.6 L 371.0 15.6 L 374.4 14.1 L 378.5 14.1 L 381.0 17.3 L 384.1 19.9 L 384.9 23.9 Z" fill="#181818" stroke="#181818" stroke-width="1.25" stroke-linejoin="round"/><path class="marquee-dot marquee-phase-2" d="M 435.1 23.3 L 434.0 27.7 L 430.6 30.6 L 427.4 33.3 L 423.3 35.0 L 419.2 33.1 L 415.7 30.9 L 413.6 27.3 L 412.0 23.3 L 413.4 19.2 L 414.9 14.9 L 419.3 13.6 L 423.3 11.6 L 427.9 12.1 L 430.9 15.7 L 433.5 19.1 L 435.1 23.3 Z" fill="url(#splashDotGlow)" stroke="#181818" stroke-width="1.25" stroke-linejoin="round"/><path class="marquee-dot marquee-phase-0" d="M 482.8 24.0 L 482.4 27.7 L 479.6 30.2 L 477.4 33.7 L 473.4 33.6 L 470.1 32.2 L 467.2 30.3 L 464.9 27.6 L 464.6 24.0 L 464.1 20.2 L 467.0 17.6 L 469.7 15.1 L 473.4 14.4 L 476.9 15.6 L 480.4 17.0 L 482.1 20.4 L 483.5 24.0 Z" fill="#181818" stroke="#181818" stroke-width="1.25" stroke-linejoin="round"/><path class="marquee-dot marquee-phase-1" d="M 536.2 24.5 L 535.4 29.1 L 532.8 33.0 L 528.9 35.6 L 524.3 35.8 L 520.1 34.8 L 515.5 33.3 L 514.1 28.7 L 513.0 24.5 L 514.2 20.3 L 516.9 17.0 L 519.9 13.9 L 524.3 13.5 L 528.4 14.6 L 533.0 15.9 L 534.5 20.3 L 535.7 24.5 Z" fill="#181818" stroke="#181818" stroke-width="1.25" stroke-linejoin="round"/><path class="marquee-dot marquee-phase-2" d="M 587.2 25.5 L 585.7 29.7 L 583.3 33.3 L 580.1 36.5 L 575.5 36.7 L 570.9 36.6 L 567.9 33.2 L 564.8 30.0 L 563.3 25.5 L 565.1 21.2 L 568.2 18.2 L 571.3 15.4 L 575.5 14.8 L 580.0 14.7 L 583.3 17.7 L 585.8 21.3 L 586.5 25.5 Z" fill="url(#splashDotGlow)" stroke="#181818" stroke-width="1.25" stroke-linejoin="round"/><path class="marquee-dot marquee-phase-0" d="M 633.2 24.0 L 632.6 27.3 L 631.4 30.8 L 627.9 32.1 L 624.6 33.1 L 620.7 33.3 L 617.8 30.8 L 615.4 27.8 L 615.3 24.0 L 616.0 20.4 L 618.5 18.0 L 621.3 16.1 L 624.6 14.7 L 628.3 15.0 L 630.5 18.1 L 632.6 20.7 L 634.1 24.0 Z" fill="#181818" stroke="#181818" stroke-width="1.25" stroke-linejoin="round"/><path class="marquee-dot marquee-phase-1" d="M 683.4 23.4 L 681.4 27.2 L 679.3 30.4 L 676.5 33.2 L 672.4 33.5 L 668.6 32.6 L 665.1 30.7 L 662.6 27.5 L 661.5 23.4 L 661.7 19.0 L 664.2 15.2 L 668.1 13.0 L 672.4 13.1 L 676.2 14.3 L 679.6 16.3 L 681.7 19.6 L 683.7 23.4 Z" fill="#181818" stroke="#181818" stroke-width="1.25" stroke-linejoin="round"/><path class="marquee-dot marquee-phase-2" d="M 732.9 24.3 L 732.9 28.0 L 730.4 30.7 L 727.5 32.7 L 724.0 34.1 L 720.7 32.1 L 717.6 30.7 L 715.2 27.9 L 714.4 24.3 L 715.2 20.6 L 717.9 18.2 L 720.7 16.3 L 724.0 15.4 L 727.2 16.4 L 731.2 17.0 L 733.4 20.4 L 732.5 24.3 Z" fill="url(#splashDotGlow)" stroke="#181818" stroke-width="1.25" stroke-linejoin="round"/><path class="marquee-dot marquee-phase-2" d="M 37.0 73.3 L 35.8 76.5 L 35.2 80.5 L 31.5 81.6 L 28.0 83.4 L 24.5 81.7 L 20.7 80.6 L 18.8 77.1 L 17.7 73.3 L 19.2 69.6 L 21.5 66.7 L 24.1 63.8 L 28.0 64.0 L 31.3 65.4 L 34.0 67.3 L 36.9 69.6 L 37.1 73.3 Z" fill="url(#splashDotGlow)" stroke="#181818" stroke-width="1.25" stroke-linejoin="round"/><path class="marquee-dot marquee-phase-0" d="M 734.5 73.0 L 732.3 76.9 L 730.6 80.6 L 727.1 82.9 L 723.0 84.4 L 719.0 82.6 L 715.0 81.0 L 713.7 76.9 L 712.0 73.0 L 713.6 69.1 L 715.7 65.8 L 718.6 62.5 L 723.0 61.9 L 726.9 63.5 L 731.0 65.0 L 732.3 69.2 L 734.4 73.0 Z" fill="#181818" stroke="#181818" stroke-width="1.25" stroke-linejoin="round"/><path class="marquee-dot marquee-phase-1" d="M 36.0 126.3 L 35.7 130.6 L 32.2 133.2 L 29.1 135.4 L 25.3 137.2 L 21.1 136.6 L 17.6 134.1 L 16.0 130.2 L 15.6 126.3 L 15.5 122.2 L 18.0 119.0 L 21.5 116.9 L 25.3 115.0 L 29.6 116.0 L 32.9 118.7 L 35.1 122.3 L 36.0 126.3 Z" fill="#181818" stroke="#181818" stroke-width="1.25" stroke-linejoin="round"/><path class="marquee-dot marquee-phase-1" d="M 736.0 124.8 L 734.0 128.8 L 732.6 133.0 L 728.6 135.2 L 724.3 135.7 L 719.6 136.2 L 717.0 132.1 L 714.6 128.8 L 712.0 124.8 L 713.9 120.5 L 715.9 116.3 L 719.9 114.1 L 724.3 112.8 L 728.3 115.2 L 731.7 117.5 L 735.2 120.3 L 736.0 124.8 Z" fill="#181818" stroke="#181818" stroke-width="1.25" stroke-linejoin="round"/><path class="marquee-dot marquee-phase-0" d="M 35.9 174.1 L 35.0 177.4 L 34.0 181.1 L 30.5 182.5 L 27.0 182.8 L 23.8 181.9 L 20.6 180.6 L 19.1 177.4 L 16.7 174.1 L 19.1 170.8 L 20.1 167.2 L 23.5 165.5 L 27.0 164.7 L 30.2 166.4 L 34.2 166.9 L 36.5 170.2 L 35.4 174.1 Z" fill="#181818" stroke="#181818" stroke-width="1.25" stroke-linejoin="round"/><path class="marquee-dot marquee-phase-2" d="M 734.2 175.2 L 733.6 179.4 L 731.7 183.5 L 727.4 185.0 L 723.4 185.5 L 718.7 186.5 L 715.1 183.5 L 712.5 179.7 L 711.2 175.2 L 713.0 170.9 L 715.2 167.0 L 719.3 165.2 L 723.4 163.8 L 727.4 165.5 L 732.1 166.4 L 733.2 171.1 L 735.4 175.2 Z" fill="url(#splashDotGlow)" stroke="#181818" stroke-width="1.25" stroke-linejoin="round"/><path class="marquee-dot marquee-phase-2" d="M 35.5 226.1 L 35.8 230.0 L 33.5 233.1 L 30.4 235.5 L 26.5 235.3 L 22.8 235.1 L 20.0 232.6 L 18.2 229.6 L 16.9 226.1 L 18.0 222.6 L 19.9 219.5 L 22.5 216.5 L 26.5 215.5 L 29.9 217.9 L 33.8 218.9 L 36.2 222.1 L 36.8 226.1 Z" fill="url(#splashDotGlow)" stroke="#181818" stroke-width="1.25" stroke-linejoin="round"/><path class="marquee-dot marquee-phase-1" d="M 86.5 227.5 L 86.0 231.4 L 83.4 234.5 L 80.3 236.8 L 76.4 239.0 L 72.5 236.9 L 69.5 234.4 L 65.8 231.8 L 66.3 227.5 L 66.0 223.1 L 68.6 219.7 L 72.3 217.6 L 76.4 216.1 L 80.4 217.9 L 84.0 219.8 L 87.0 223.1 L 87.6 227.5 Z" fill="#181818" stroke="#181818" stroke-width="1.25" stroke-linejoin="round"/><path class="marquee-dot marquee-phase-0" d="M 137.4 226.4 L 135.7 230.2 L 134.2 234.2 L 130.6 236.4 L 126.4 236.1 L 122.7 235.3 L 118.9 233.9 L 117.1 230.2 L 115.5 226.4 L 117.3 222.6 L 119.1 219.1 L 122.8 217.6 L 126.4 215.6 L 129.9 218.1 L 133.3 219.5 L 135.3 222.7 L 136.8 226.4 Z" fill="#181818" stroke="#181818" stroke-width="1.25" stroke-linejoin="round"/><path class="marquee-dot marquee-phase-2" d="M 186.6 224.4 L 186.8 228.4 L 184.6 232.0 L 180.7 233.3 L 177.0 234.3 L 173.2 233.6 L 170.4 231.0 L 168.8 227.8 L 167.3 224.4 L 167.2 220.3 L 170.6 218.0 L 173.0 214.7 L 177.0 214.2 L 180.7 215.5 L 183.7 217.7 L 185.3 221.0 L 187.3 224.4 Z" fill="url(#splashDotGlow)" stroke="#181818" stroke-width="1.25" stroke-linejoin="round"/><path class="marquee-dot marquee-phase-1" d="M 236.0 226.8 L 236.0 230.7 L 233.9 234.1 L 230.5 236.3 L 226.5 237.1 L 222.4 236.8 L 218.7 234.6 L 217.0 230.7 L 215.5 226.8 L 217.9 223.2 L 218.8 219.0 L 222.4 216.7 L 226.5 217.2 L 230.1 218.1 L 233.6 219.7 L 235.7 223.0 L 236.8 226.8 Z" fill="#181818" stroke="#181818" stroke-width="1.25" stroke-linejoin="round"/><path class="marquee-dot marquee-phase-0" d="M 286.6 226.2 L 286.6 230.1 L 283.8 232.8 L 280.5 234.1 L 277.2 236.1 L 273.3 235.6 L 271.2 232.1 L 269.2 229.5 L 267.4 226.2 L 268.8 222.7 L 270.9 219.9 L 273.5 217.2 L 277.2 216.3 L 280.6 218.0 L 283.3 220.1 L 284.9 223.0 L 287.5 226.2 Z" fill="#181818" stroke="#181818" stroke-width="1.25" stroke-linejoin="round"/><path class="marquee-dot marquee-phase-2" d="M 334.8 226.4 L 333.9 229.9 L 332.2 233.1 L 329.3 235.7 L 325.5 237.0 L 321.2 236.7 L 318.0 233.9 L 316.7 230.0 L 315.7 226.4 L 316.5 222.7 L 318.4 219.4 L 321.5 216.8 L 325.5 217.0 L 329.5 216.5 L 333.2 218.6 L 335.0 222.4 L 336.4 226.4 Z" fill="url(#splashDotGlow)" stroke="#181818" stroke-width="1.25" stroke-linejoin="round"/><path class="marquee-dot marquee-phase-1" d="M 384.6 226.3 L 383.9 230.3 L 381.9 233.8 L 378.3 235.7 L 374.4 237.3 L 370.2 236.6 L 366.3 234.5 L 364.5 230.4 L 363.2 226.3 L 364.0 222.0 L 366.8 218.7 L 370.3 216.4 L 374.4 215.2 L 378.5 216.6 L 382.6 218.2 L 385.1 221.9 L 385.8 226.3 Z" fill="#181818" stroke="#181818" stroke-width="1.25" stroke-linejoin="round"/><path class="marquee-dot marquee-phase-0" d="M 435.5 226.1 L 432.9 230.1 L 431.2 234.1 L 427.3 235.8 L 423.2 238.1 L 419.2 235.8 L 415.7 233.6 L 412.9 230.4 L 411.8 226.1 L 413.0 221.9 L 415.9 218.8 L 419.0 216.0 L 423.2 213.9 L 427.5 215.7 L 431.2 218.2 L 434.3 221.5 L 435.1 226.1 Z" fill="#181818" stroke="#181818" stroke-width="1.25" stroke-linejoin="round"/><path class="marquee-dot marquee-phase-2" d="M 484.5 227.5 L 483.1 231.0 L 481.9 234.7 L 478.2 236.0 L 474.6 236.4 L 471.3 235.6 L 468.2 233.9 L 465.0 231.5 L 465.6 227.5 L 466.2 224.0 L 467.2 220.1 L 470.7 217.9 L 474.6 217.8 L 478.2 218.8 L 481.8 220.3 L 482.7 224.2 L 485.0 227.5 Z" fill="url(#splashDotGlow)" stroke="#181818" stroke-width="1.25" stroke-linejoin="round"/><path class="marquee-dot marquee-phase-1" d="M 535.3 226.6 L 534.5 230.5 L 532.0 233.5 L 529.0 236.0 L 525.1 236.6 L 521.4 235.8 L 518.4 233.4 L 516.4 230.2 L 515.9 226.6 L 516.7 223.1 L 517.8 219.4 L 521.6 218.1 L 525.1 216.3 L 528.8 217.8 L 531.9 219.9 L 533.9 223.0 L 534.6 226.6 Z" fill="#181818" stroke="#181818" stroke-width="1.25" stroke-linejoin="round"/><path class="marquee-dot marquee-phase-0" d="M 584.5 224.4 L 582.8 228.4 L 580.7 232.1 L 577.1 234.4 L 573.0 235.6 L 568.8 234.4 L 565.4 231.9 L 562.1 228.9 L 561.4 224.4 L 563.3 220.4 L 564.6 216.0 L 568.5 213.5 L 573.0 213.7 L 577.3 213.9 L 581.6 215.8 L 583.1 220.2 L 584.6 224.4 Z" fill="#181818" stroke="#181818" stroke-width="1.25" stroke-linejoin="round"/><path class="marquee-dot marquee-phase-2" d="M 634.2 226.6 L 633.6 230.7 L 630.8 233.7 L 627.6 235.8 L 623.8 236.6 L 619.6 236.7 L 616.6 233.9 L 613.6 230.9 L 614.2 226.6 L 614.7 222.9 L 616.8 219.7 L 619.4 216.1 L 623.8 216.6 L 627.9 216.7 L 631.0 219.5 L 633.5 222.6 L 634.0 226.6 Z" fill="url(#splashDotGlow)" stroke="#181818" stroke-width="1.25" stroke-linejoin="round"/><path class="marquee-dot marquee-phase-1" d="M 683.5 226.2 L 681.3 230.0 L 679.4 233.5 L 676.2 236.0 L 672.1 237.5 L 668.4 235.1 L 664.1 234.3 L 662.6 230.2 L 661.0 226.2 L 662.4 222.2 L 664.5 218.6 L 668.0 216.3 L 672.1 216.2 L 676.5 215.7 L 680.1 218.3 L 681.1 222.5 L 682.9 226.2 Z" fill="#181818" stroke="#181818" stroke-width="1.25" stroke-linejoin="round"/><path class="marquee-dot marquee-phase-0" d="M 733.8 226.8 L 732.9 230.4 L 731.2 233.8 L 728.3 236.5 L 724.2 236.0 L 720.8 235.2 L 716.9 234.1 L 714.5 230.8 L 714.1 226.8 L 714.5 222.7 L 717.2 219.8 L 720.5 217.8 L 724.2 216.4 L 728.1 217.3 L 730.5 220.5 L 732.4 223.4 L 733.7 226.8 Z" fill="#181818" stroke="#181818" stroke-width="1.25" stroke-linejoin="round"/></svg><h1 id="splashTitle">The Light Trade</h1></div><div class="splash-gist" aria-label="How to play"><p class="splash-gist-heading"><strong>The gist</strong></p><p>Get an 8-card hand of old light fixtures to re-use, recycle, or landfill</p><p>Each card has a value based on the materials it contains, which changes when market prices change</p><p>Maximize the value of your hand by swapping with other players, drawing a Chance card, or cashing out</p><p>Cashing out fixes the value of your hand and ends play</p><p>The game ends when every player has cashed out</p></div><button type="button" id="startGame">Start Game</button></div><table class="splash-footer" aria-label="Game credits"><tbody><tr><td>Developed by<strong>Team Eureka</strong><img class="team-bulb" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMjIiIGhlaWdodD0iNTQyIiB2aWV3Qm94PSIwIDAgMzIyIDU0MiI+Cjx0aXRsZT5BQlNUIGxpZ2h0IGJ1bGI8L3RpdGxlPgo8ZyBmaWxsPSJub25lIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2UtbGluZWNhcD0icm91bmQiPgo8IS0tIG91dGVyIGdsYXNzOiBoZWF2aWVyIGJsYWNrIGxpbmUgLS0+CjxwYXRoIGQ9Ik0gODggNDE4IEMgNzggNDA1IDcyIDM3MSA2NCAzMzggTCAzNCAxOTkgQyAxOCAxMjQgMzcgNjkgNzggNDQgQyAxMjUgMTYgMTk0IDIzIDIzNyA1MSBDIDI3NyA3NyAyOTcgMTMwIDI5MCAxODYgTCAyNTggMzM3IEMgMjUwIDM3MiAyNDYgNDA4IDIzMCA0MjMgQyAyMjAgNDMzIDIwNSA0MzMgMTkwIDQzMyBMIDEyNyA0MzMgQyAxMDggNDMzIDk2IDQyOSA4OCA0MTggWiIgc3Ryb2tlPSIjMjkyOTI5IiBzdHJva2Utd2lkdGg9IjIuNjUiLz4KPCEtLSBpbnRlcm5hbCBzdXBwb3J0LCBzdWJ0bGUgZ3JheSAtLT4KPHBhdGggZD0iTSAxNTMgODggTCAxNjcgODggTCAxNzYgMTI4IEwgMTc2IDQwOCBNIDE1MyA4OCBMIDE0NSAxMjUgTCAxNDUgNDA4IiBzdHJva2U9IiNhMWExYTEiIHN0cm9rZS13aWR0aD0iMS42Ii8+CjxwYXRoIGQ9Ik0gMTQ1IDE3MSBMIDE0NSA0MDggTSAxNzYgMTY5IEwgMTc2IDQwOCIgc3Ryb2tlPSIjYjViNWI1IiBzdHJva2Utd2lkdGg9IjEuMyIvPgo8IS0tIGJhc2UgY29sbGFyIC0tPgo8cGF0aCBkPSJNIDExNiA0MDggSCAyMDUgViA0NTggSCAxMTYgWiIgc3Ryb2tlPSIjYTBhMGEwIiBzdHJva2Utd2lkdGg9IjEuNzUiLz4KPHBhdGggZD0iTSAxMTYgNDMzIEggMjA1IiBzdHJva2U9IiM5YjliOWIiIHN0cm9rZS13aWR0aD0iMS42Ii8+CjwhLS0gdGhyZWFkZWQgc2NyZXcgLS0+CjxwYXRoIGQ9Ik0gMTE2IDQ1OCBMIDEwMyA0NjcgTCAxMTcgNDc2IEwgMTA1IDQ4NSBMIDExNyA0OTQgTCAxMDYgNTAyIEwgMTE4IDUxMSBMIDEyMiA1MTkgSCAxOTkgTCAyMDQgNTExIEwgMjE2IDUwMiBMIDIwNCA0OTQgTCAyMTcgNDg1IEwgMjA0IDQ3NiBMIDIxOCA0NjcgTCAyMDUgNDU4IiBzdHJva2U9IiNhNWE1YTUiIHN0cm9rZS13aWR0aD0iMS43Ii8+CjxwYXRoIGQ9Ik0gMTE3IDQ3NiBIIDIwNCBNIDExNyA0OTQgSCAyMDQgTSAxMTggNTExIEggMjA0IiBzdHJva2U9IiNiMGIwYjAiIHN0cm9rZS13aWR0aD0iMS4xNSIvPgo8L2c+CjwhLS0gc2VyaWYgbGV0dGVyaW5nOiBmaW5lIGRhcmsgb3V0bGluZXMsIHdoaXRlIGludGVyaW9yIC0tPgo8ZyBmaWxsPSJ3aGl0ZSIgc3Ryb2tlPSIjMjAyMDIwIiBzdHJva2Utd2lkdGg9IjEuNyIgcGFpbnQtb3JkZXI9InN0cm9rZSBmaWxsIiBmb250LWZhbWlseT0iTGliZXJhdGlvbiBTZXJpZiwgVGltZXMgTmV3IFJvbWFuLCBzZXJpZiIgZm9udC13ZWlnaHQ9IjQwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+Cjx0ZXh0IHg9IjE2MSIgeT0iMTYyIiBmb250LXNpemU9IjczIj5BPC90ZXh0Pgo8dGV4dCB4PSIxNjEiIHk9IjI0MCIgZm9udC1zaXplPSI3NSI+QjwvdGV4dD4KPHRleHQgeD0iMTYxIiB5PSIzMTciIGZvbnQtc2l6ZT0iNzYiPlM8L3RleHQ+Cjx0ZXh0IHg9IjE2MSIgeT0iMzk1IiBmb250LXNpemU9Ijc2Ij5UPC90ZXh0Pgo8L2c+Cjwvc3ZnPgo=" alt="Abstract light bulb illustration" height="100"></td><td>Developed for<strong>FND2007 Community Practice</strong><img src="https://upload.wikimedia.org/wikipedia/commons/1/11/The_BAC_Main_Logo.png" alt="Boston Architectural College logo" loading="eager"></td></tr><tr><td colspan="2" class="splash-disclosure">All creative elements of this game, including rules and graphics, were created by human beings. The tech platform upon which it runs—which manages the 'internal plumbing' of the game, including user communication, maintenance of state, scoring, and randomization—is human-designed and build with AI-assisted tools.</td></tr></tbody></table></div><div id="tutorialShade" class="tutorial-shade" hidden aria-hidden="true"></div><div id="tutorialCallout" class="tutorial-callout" role="dialog" aria-modal="true" aria-labelledby="tutorialHeading" hidden><h2 id="tutorialHeading">How to play</h2><p>Click on any card to view it or swap it with another player</p><p class="tutorial-continue">Click anywhere to continue</p></div><main class="wrap">
 <header><div><h1>The Light Trade</h1></div><div class="header-pills"><span class="tag" id="turnLabel">Turn 1</span><span class="tag" id="playerCount">4 players</span></div></header>
-<div class="game-columns"><section class="hand-unboxed"><h2>Your hand</h2><div id="hand" class="hand-layout"></div><p id="resaleFootnote" class="muted note" style="margin:12px 0 0">* Card value is based on resale value rather than material value.</p><div class="total"><span><b>Total hand value</b><br><span class="muted note" id="handCount">8 cards</span></span><div class="total-actions"><strong id="total">0.00</strong><button id="reset" class="cash-out-action">Cash out</button></div></div><div class="last-play"><div class="last-play-label">Last play</div><p class="message" id="swapMessage" role="status" aria-live="polite"></p></div></section>
-<section class="market-region"><h2>Public market prices</h2><div class="panel"><p class="muted note">Prices changes randomly after every turn. If you choose "Cash out," the prices shown will determine payout.</p><div class="grid" id="market"></div></div></section></div>
+<div class="game-columns"><section class="hand-unboxed"><h2>Your hand</h2><div id="hand" class="hand-layout"></div><p id="resaleFootnote" class="muted note" style="margin:12px 0 0">* Card value is based on resale value rather than material value.</p></section><aside class="action-rail" aria-label="Game actions"><button type="button" class="hand-chance rail-circle" id="drawChance">Don't swap - draw chance</button><button type="button" id="reset" class="cash-out-action rail-circle">Cash out</button><div class="rail-total" aria-label="Total hand value"><b>Total hand value</b><strong id="total">0.00</strong><span class="muted note" id="handCount">8 cards</span></div><div class="last-play rail-last-play" aria-label="Last play"><div class="last-play-label">Last play</div><p class="message" id="swapMessage" role="status" aria-live="polite"></p></div></aside>
+<section class="market-region"><h2>Public market prices</h2><div class="panel"><p class="muted note">Market prices change only when a Change Market Prices chance card is drawn. If you choose "Cash out," the current prices determine your payout.</p><div class="grid" id="market"></div></div></section></div>
 
 
 </main><div id="swapPopup" class="popup-backdrop" hidden><div class="popup" role="dialog" aria-modal="true" aria-labelledby="swapTitle"><h2 id="swapTitle">Choose an available hand</h2><p class="muted note">You will receive the lowest-valued card in the selected hidden hand. Hands worth more than your total hand value cannot be selected.</p><div class="choice-buttons" id="forceCardChoices" hidden></div><div class="choice-buttons" id="swapChoices"><button data-choice="0">Player 1</button><button data-choice="1">Player 2</button><button data-choice="2">Player 3</button></div><button id="cancelSwap" class="secondary" style="margin-top:16px">Cancel</button></div></div><div id="cashPopup" class="popup-backdrop" hidden><div class="popup" role="alertdialog" aria-modal="true" aria-labelledby="cashTitle" aria-describedby="cashResult"><h2 id="cashTitle">Your final card values</h2><div id="cashResult" class="cash-detail"></div><button id="closeCash">Next</button></div></div><div id="chancePopup" class="popup-backdrop" hidden><div class="popup" role="alertdialog" aria-modal="true" aria-labelledby="chanceTitle" aria-describedby="chanceResult"><h2 id="chanceTitle">Chance card drawn</h2><div id="chanceResult" class="popup-result"></div><button id="closeChance">OK</button></div></div><script src="https://cdn.jsdelivr.net/npm/roughjs@4.6.6/bundled/rough.js"></script><script>
@@ -274,42 +466,45 @@ const STARTING_CARDS=
 [
   {
     "id": "c1",
-    "name": "Tiffany-style lamp",
+    "name": "Tiffany lamp",
     "kg": [
-      90,
+      59,
       0,
       0,
       1,
       0,
       1,
       0
-    ]
+    ],
+    "image": "11.jpg"
   },
   {
     "id": "c2",
     "name": "Modern chandelier",
     "kg": [
-      49,
+      44,
       0,
       2,
       1,
       1,
       0,
       0
-    ]
+    ],
+    "image": "10.jpg"
   },
   {
     "id": "c3",
     "name": "Car charger",
     "kg": [
-      85,
+      62,
       3,
       2,
       3,
       0,
       2,
       0
-    ]
+    ],
+    "image": "2.jpg"
   },
   {
     "id": "c4",
@@ -322,7 +517,8 @@ const STARTING_CARDS=
       0,
       1,
       0
-    ]
+    ],
+    "image": "1.jpg"
   },
   {
     "id": "c5",
@@ -335,7 +531,8 @@ const STARTING_CARDS=
       0,
       16,
       4
-    ]
+    ],
+    "image": "9.jpg"
   },
   {
     "id": "c6",
@@ -348,7 +545,8 @@ const STARTING_CARDS=
       12,
       6,
       3
-    ]
+    ],
+    "image": "0.jpg"
   },
   {
     "id": "c7",
@@ -361,7 +559,8 @@ const STARTING_CARDS=
       0,
       2,
       4
-    ]
+    ],
+    "image": "0.jpg"
   },
   {
     "id": "c8",
@@ -374,7 +573,8 @@ const STARTING_CARDS=
       0,
       2,
       0
-    ]
+    ],
+    "image": "0.jpg"
   },
   {
     "id": "c9",
@@ -387,7 +587,8 @@ const STARTING_CARDS=
       1,
       0,
       0
-    ]
+    ],
+    "image": "6.jpg"
   },
   {
     "id": "c10",
@@ -400,7 +601,8 @@ const STARTING_CARDS=
       0,
       3,
       0
-    ]
+    ],
+    "image": "0.jpg"
   },
   {
     "id": "c11",
@@ -413,7 +615,8 @@ const STARTING_CARDS=
       0,
       3,
       10
-    ]
+    ],
+    "image": "8.jpg"
   },
   {
     "id": "c12",
@@ -426,7 +629,8 @@ const STARTING_CARDS=
       0,
       2,
       0
-    ]
+    ],
+    "image": "7.jpg"
   },
   {
     "id": "c13",
@@ -439,7 +643,8 @@ const STARTING_CARDS=
       0,
       0,
       1
-    ]
+    ],
+    "image": "5.jpg"
   },
   {
     "id": "c14",
@@ -452,7 +657,8 @@ const STARTING_CARDS=
       0,
       2,
       0
-    ]
+    ],
+    "image": "6.jpg"
   },
   {
     "id": "c15",
@@ -465,7 +671,8 @@ const STARTING_CARDS=
       0,
       3,
       0
-    ]
+    ],
+    "image": "0.jpg"
   },
   {
     "id": "c16",
@@ -478,7 +685,8 @@ const STARTING_CARDS=
       0,
       2,
       0
-    ]
+    ],
+    "image": "0.jpg"
   },
   {
     "id": "c17",
@@ -491,7 +699,8 @@ const STARTING_CARDS=
       0,
       0,
       0
-    ]
+    ],
+    "image": "3.jpg"
   },
   {
     "id": "c18",
@@ -504,20 +713,22 @@ const STARTING_CARDS=
       0,
       0,
       1
-    ]
+    ],
+    "image": "8.jpg"
   },
   {
     "id": "c19",
     "name": "Chandelier",
     "kg": [
-      75,
+      65,
       0,
       0,
       15,
       16,
       0,
       0
-    ]
+    ],
+    "image": "4.jpg"
   },
   {
     "id": "c20",
@@ -530,7 +741,8 @@ const STARTING_CARDS=
       0,
       0,
       1
-    ]
+    ],
+    "image": "5.jpg"
   },
   {
     "id": "c21",
@@ -543,7 +755,8 @@ const STARTING_CARDS=
       0,
       6,
       0
-    ]
+    ],
+    "image": "0.jpg"
   },
   {
     "id": "c22",
@@ -556,7 +769,8 @@ const STARTING_CARDS=
       0,
       2,
       0
-    ]
+    ],
+    "image": "0.jpg"
   },
   {
     "id": "c23",
@@ -569,7 +783,8 @@ const STARTING_CARDS=
       0,
       4,
       0
-    ]
+    ],
+    "image": "0.jpg"
   },
   {
     "id": "c24",
@@ -582,20 +797,22 @@ const STARTING_CARDS=
       16,
       2,
       0
-    ]
+    ],
+    "image": "0.jpg"
   },
   {
     "id": "c25",
     "name": "Copper post lamp",
     "kg": [
-      58,
+      43,
       0,
       0,
       3,
       1,
       1,
       0
-    ]
+    ],
+    "image": "0.jpg"
   },
   {
     "id": "c26",
@@ -608,7 +825,8 @@ const STARTING_CARDS=
       0,
       12,
       0
-    ]
+    ],
+    "image": "0.jpg"
   },
   {
     "id": "c27",
@@ -621,7 +839,8 @@ const STARTING_CARDS=
       2,
       4,
       0
-    ]
+    ],
+    "image": "0.jpg"
   },
   {
     "id": "c28",
@@ -634,7 +853,8 @@ const STARTING_CARDS=
       0,
       0,
       2
-    ]
+    ],
+    "image": "0.jpg"
   },
   {
     "id": "c29",
@@ -647,7 +867,8 @@ const STARTING_CARDS=
       0,
       2,
       0
-    ]
+    ],
+    "image": "8.jpg"
   },
   {
     "id": "c30",
@@ -660,7 +881,8 @@ const STARTING_CARDS=
       0,
       2,
       0
-    ]
+    ],
+    "image": "0.jpg"
   },
   {
     "id": "c31",
@@ -673,7 +895,8 @@ const STARTING_CARDS=
       0,
       6,
       0
-    ]
+    ],
+    "image": "0.jpg"
   },
   {
     "id": "c32",
@@ -686,7 +909,8 @@ const STARTING_CARDS=
       1,
       0,
       0
-    ]
+    ],
+    "image": "0.jpg"
   },
   {
     "id": "c33",
@@ -699,7 +923,8 @@ const STARTING_CARDS=
       2,
       2,
       0
-    ]
+    ],
+    "image": "7.jpg"
   },
   {
     "id": "c34",
@@ -712,20 +937,22 @@ const STARTING_CARDS=
       0,
       1,
       0
-    ]
+    ],
+    "image": "5.jpg"
   },
   {
     "id": "c35",
     "name": "Neon sign",
     "kg": [
-      44,
+      28,
       1,
       0,
       1,
       3,
       0,
       2
-    ]
+    ],
+    "image": "0.jpg"
   },
   {
     "id": "c36",
@@ -738,7 +965,8 @@ const STARTING_CARDS=
       1,
       0,
       0
-    ]
+    ],
+    "image": "6.jpg"
   }
 ];
 const MOVEMENT_WEIGHTS=[{magnitude:0,weight:20},{magnitude:1,weight:50},{magnitude:2,weight:20},{magnitude:3,weight:4},{magnitude:4,weight:3},{magnitude:5,weight:3}];
@@ -746,7 +974,7 @@ const STORAGE_KEY='card_market_custom_v42_36_card_deck';
 const LEGACY_SEVEN_STORAGE_KEY='card_market_custom_v22_7materials';
 const PREVIOUS_STORAGE_KEY='card_market_custom_v11_kg';
 const OLD_STORAGE_KEY='card_market_custom_v7';
-const CHANCE_MESSAGES=[...Array(8).fill('random trade'),'cash out','force trade'];
+const CHANCE_MESSAGES=[...Array(4).fill('random trade'),'cash out',...Array(3).fill('change market prices'),...Array(2).fill('force trade')];
 const el=id=>document.getElementById(id);
 const clamp=(n,min,max)=>Math.max(min,Math.min(max,n));
 const escapeHtml=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -832,25 +1060,30 @@ function newGame(){
   selectedHandIndex=-1;
   render();
 }
-function endTurn(){if(!state.swappedThisTurn)return;state.previousPrices=[...state.prices];state.prices=state.prices.map((p,i)=>{const r=PRICE_RANGES[i];const step=(r.max-r.min)/10;return roundPrice(clamp(p+weightedMovement()*step,r.min,r.max));});state.turn++;state.history.push({turn:state.turn,prices:[...state.prices]});state.lastChance='';state.swappedThisTurn=false;selectedHandIndex=-1;render();}
+function changeMarketPrices(){state.previousPrices=[...state.prices];state.prices=state.prices.map((p,i)=>{const r=PRICE_RANGES[i];const step=(r.max-r.min)/10;return roundPrice(clamp(p+weightedMovement()*step,r.min,r.max));});}
+function endTurn(){if(!state.swappedThisTurn)return;state.turn++;state.history.push({turn:state.turn,prices:[...state.prices]});state.lastChance='';state.swappedThisTurn=false;selectedHandIndex=-1;render();}
 let pendingSwapIndex=null;
 let forceTradeActive=false;
 let swapAnimationTimer=null;
 let swapTransitionActive=false;
+function handTotal(cards){return cards.reduce((sum,id)=>sum+valueOf(cardById(id)),0);}
+function averageHandTotal(){
+  const hands=[state.hand,...state.available];
+  return hands.reduce((sum,hand)=>sum+handTotal(hand),0)/hands.length;
+}
+function voluntarySwapEligible(hand){return handTotal(hand)<averageHandTotal()-1e-9;}
 function swapCard(index){
   if(!Number.isInteger(index)||index<0||index>=8||(state.swappedThisTurn||swapTransitionActive))return;
   forceTradeActive=false;
   el('forceCardChoices').hidden=true;
   el('swapChoices').hidden=false;
   el('swapTitle').textContent='Choose an available hand';
-  el('swapPopup').querySelector('.note').textContent='You will receive the lowest-valued card in the selected hidden hand. Hands worth more than your total hand value cannot be selected.';
+  el('swapPopup').querySelector('.note').textContent='You will receive the lowest-valued card in the selected hidden hand. Only players whose hand value is below the average of all four hands are available for voluntary swaps.';
   pendingSwapIndex=index;
-  const myTotal=state.hand.reduce((sum,id)=>sum+valueOf(cardById(id)),0);
   const buttons=[...el('swapChoices').querySelectorAll('button[data-choice]')];
   buttons.forEach((button,i)=>{
-    const theirTotal=state.available[i].reduce((sum,id)=>sum+valueOf(cardById(id)),0);
-    button.disabled=theirTotal>myTotal+1e-9;
-    button.title=button.disabled?'This hand is worth more than your hand.':'';
+    button.disabled=!voluntarySwapEligible(state.available[i]);
+    button.title=button.disabled?'This hand is not below the average value of all four hands.':'';
   });
   el('swapPopup').hidden=false;
   (buttons.find(button=>!button.disabled)||el('cancelSwap')).focus();
@@ -868,9 +1101,7 @@ function confirmSwap(handIndex){
   if(pendingSwapIndex===null||(state.swappedThisTurn||swapTransitionActive)||!Number.isInteger(handIndex)||handIndex<0||handIndex>=3)return;
   const hand=state.available[handIndex];
   if(!Array.isArray(hand)||hand.length!==8)return;
-  const myTotal=state.hand.reduce((sum,id)=>sum+valueOf(cardById(id)),0);
-  const theirTotal=hand.reduce((sum,id)=>sum+valueOf(cardById(id)),0);
-  if(!forceTradeActive&&theirTotal>myTotal+1e-9)return;
+  if(!forceTradeActive&&!voluntarySwapEligible(hand))return;
   const candidates=hand.map((id,index)=>({id,index,value:valueOf(cardById(id))}));
   const lowest=Math.min(...candidates.map(c=>c.value));
   const tied=candidates.filter(c=>Math.abs(c.value-lowest)<1e-9);
@@ -909,7 +1140,7 @@ function drawChance(){
   state.lastSwap=`Chance card drawn: ${choice}. Select the action in the popup.`;
   render();
   el('chanceResult').textContent=choice;
-  el('closeChance').textContent=choice==='cash out'?'Cash out':choice==='force trade'?'Force trade':'Random trade';
+  el('closeChance').textContent=choice==='cash out'?'Cash out':choice==='force trade'?'Force trade':choice==='change market prices'?'Change prices':'Random trade';
   el('chancePopup').hidden=false;
   el('closeChance').focus();
 }
@@ -923,7 +1154,7 @@ function randomTrade(){
   state.hand[ownIndex]=incoming;
   otherHand[theirIndex]=outgoing;
   state.swappedThisTurn=true;
-  state.lastSwap=`Random trade: ${cardById(outgoing).name} exchanged for ${cardById(incoming).name} from Player ${otherIndex+1}. Prices update after the 2-second highlight.`;
+  state.lastSwap=`Random trade: ${cardById(outgoing).name} exchanged for ${cardById(incoming).name} from Player ${otherIndex+1}. Market prices remain unchanged.`;
   el('chancePopup').hidden=true;
   swapTransitionActive=true;
   selectedHandIndex=ownIndex;
@@ -969,6 +1200,12 @@ function closeChance(){
     cashOut(); // Cash out does not update prices or advance the turn.
   }else if(state.lastChance==='random trade'){
     randomTrade();
+  }else if(state.lastChance==='change market prices'){
+    el('chancePopup').hidden=true;
+    changeMarketPrices();
+    state.lastSwap='Change Market Prices: public market prices have been updated.';
+    state.swappedThisTurn=true;
+    endTurn();
   }else if(state.lastChance==='force trade'){
     beginForceTrade();
   }
@@ -1011,24 +1248,101 @@ function marketSparkline(index){
 let selectedHandIndex=-1; // -1 means no selection; 0–7 select a card; 8 selects the chance-card action.
 function render(){el('turnLabel').textContent=`Turn ${state.turn}`;el('playerCount').textContent=`${state.available.length+1} players`;el('market').innerHTML=CATEGORIES.map((cat,i)=>{return `<div class="tile" style="--rough-color:${cat.color}"><div>${cat.name}</div><div class="price">${i===0?(state.prices[i]*100).toFixed(0)+'%':formatPrice(state.prices[i])}<small style="font-size:.35em;font-weight:500">${i===0?"":" /kg"}</small></div><div class="market-average">Game average: <strong>${i===0?(averagePrice(i)*100).toFixed(0)+'%':averagePrice(i).toFixed(2)+' /kg'}</strong></div>${marketSparkline(i)}</div>`;}).join('');let total=0;
   if(selectedHandIndex<-1||selectedHandIndex>8)selectedHandIndex=-1;
-  const selections=state.hand.map((id,i)=>{
+  const cards=state.hand.map((id,i)=>{
     const card=cardById(id),value=valueOf(card);total+=value;
-    return `<button type="button" class="hand-select" data-select="${i}" aria-pressed="${selectedHandIndex===i}" aria-label="Select ${escapeHtml(card.name)}, value ${displayCardValue(card)}"><span class="select-name">${escapeHtml(card.name)}</span><span class="select-value">${displayCardValue(card)}</span></button>`;
+    const flipped=selectedHandIndex===i;
+    return `<div role="button" tabindex="0" class="product-card ${flipped?'is-flipped':''}" style="--card-i:${i}" data-select="${i}" data-card-index="${i}" aria-pressed="${flipped}" aria-label="${escapeHtml(card.name)}, ${displayCardValue(card)}. ${flipped?'Show front':'Flip to see materials'}"><span class="product-card-inner"><span class="product-card-face product-card-front"><span class="product-card-title">${escapeHtml(card.name)}</span><span class="product-card-price">${displayCardValue(card)}</span></span><span class="product-card-face product-card-back"><span class="product-card-title">${escapeHtml(card.name)}</span>${mixBar(card.kg)}<span class="cardmeta">${mixText(card.kg)}</span><img class="card-product-image" src="https://github.com/wbcrowell/LightTrade/blob/107c7b3cbf618d8ed18e1cd9c725aca52ce21b77/${encodeURIComponent(card.image||'')}" alt="${escapeHtml(card.name)}" loading="lazy" decoding="async"><button type="button" class="card-swap-circle" data-swap="${i}" ${state.swappedThisTurn||swapTransitionActive?'disabled':''} aria-label="Swap ${escapeHtml(card.name)}">Swap</button><span class="cardvalue">Value: ${displayCardValue(card)}</span><span class="flip-hint">Click to flip back</span></span></span></div>`;
   }).join('');
   const selected=selectedHandIndex>=0&&selectedHandIndex<8?cardById(state.hand[selectedHandIndex]):null;
-  const detail=selected?`<div class="hand-detail carditem" data-card-index="${selectedHandIndex}"><div class="cardtop"><b>${escapeHtml(selected.name)}</b><span class="muted">#${selectedHandIndex+1}</span></div>${mixBar(selected.kg)}<div class="cardmeta">${mixText(selected.kg)}</div><div class="cardvalue"><b>Value: ${displayCardValue(selected)}</b></div><button class="detail-action" data-swap="${selectedHandIndex}" ${state.swappedThisTurn||swapTransitionActive?'disabled':''} aria-label="Swap ${escapeHtml(selected.name)} and choose an available hand">${state.swappedThisTurn||swapTransitionActive?'Updating…':'Swap'}</button></div>`
-    :selectedHandIndex===8?`<div class="hand-detail chancecard"><div><h3>Don't Swap</h3><p>Draw a chance card instead</p></div><button id="drawChance" class="detail-action" ${state.swappedThisTurn||swapTransitionActive?'disabled':''}>${state.swappedThisTurn||swapTransitionActive?'Updating…':'Draw'}</button></div>`
-    :`<div class="hand-detail"><p class="muted">Select a card on the left to view its details, or choose Don't Swap to draw a chance card. Choose Cash Out to end your game.</p></div>`;
-  el('hand').innerHTML=`<div class="hand-selector" aria-label="Select a card from your hand">${selections}<button type="button" class="hand-select hand-chance" data-select="8" aria-pressed="${selectedHandIndex===8}">Don't Swap · Draw chance</button></div>${detail}`;
-  el('total').textContent=total.toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2});el('resaleFootnote').textContent='* Card value is based on resale value rather than material value.';el('handCount').textContent=`${state.hand.length} cards in hand`;el('swapMessage').textContent=state.lastSwap||(swapTransitionActive?'Revealing your new card; prices update in 2 seconds.':'No plays yet.');save();}
-el('forceCardChoices').addEventListener('click',e=>{const b=e.target.closest('[data-force-card]');if(b)chooseForceTradeCard(Number(b.dataset.forceCard));});el('swapChoices').addEventListener('click',e=>{const b=e.target.closest('[data-choice]');if(b)confirmSwap(Number(b.dataset.choice));});el('cancelSwap').addEventListener('click',cancelSwap);el('swapPopup').addEventListener('click',e=>{if(e.target===el('swapPopup'))cancelSwap();});el('reset').addEventListener('click',cashOut);el('closeCash').addEventListener('click',advanceCashPopup);el('hand').addEventListener('click',e=>{const selector=e.target.closest('[data-select]');if(selector){selectedHandIndex=Number(selector.dataset.select);render();el('hand').querySelector(`[data-select="${selectedHandIndex}"]`)?.focus();return;}if(e.target.closest('#drawChance')){drawChance();return;}const btn=e.target.closest('[data-swap]');if(btn)swapCard(Number(btn.dataset.swap));});el('closeChance').addEventListener('click',closeChance);// Always begin on the splash screen with a clean, unplayed state.
+  el('hand').innerHTML=`<div class="product-fan" aria-label="Your eight overlapping product cards">${cards}</div>`;
+  el('drawChance').disabled=!!(state.swappedThisTurn||swapTransitionActive);el('total').textContent=total.toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2});el('resaleFootnote').textContent='* Card value is based on resale value rather than material value.';el('handCount').textContent=`${state.hand.length} cards in hand`;el('swapMessage').textContent=state.lastSwap||(swapTransitionActive?'Revealing your new card; prices update in 2 seconds.':'No plays yet.');save();}
+el('forceCardChoices').addEventListener('click',e=>{const b=e.target.closest('[data-force-card]');if(b)chooseForceTradeCard(Number(b.dataset.forceCard));});el('swapChoices').addEventListener('click',e=>{const b=e.target.closest('[data-choice]');if(b)confirmSwap(Number(b.dataset.choice));});el('cancelSwap').addEventListener('click',cancelSwap);el('swapPopup').addEventListener('click',e=>{if(e.target===el('swapPopup'))cancelSwap();});el('reset').addEventListener('click',cashOut);el('drawChance').addEventListener('click',drawChance);el('closeCash').addEventListener('click',advanceCashPopup);el('hand').addEventListener('click',e=>{const swap=e.target.closest('[data-swap]');if(swap){e.stopPropagation();swapCard(Number(swap.dataset.swap));return;}const selector=e.target.closest('[data-select]');if(selector){const clicked=Number(selector.dataset.select);selectedHandIndex=selectedHandIndex===clicked?-1:clicked;render();if(selectedHandIndex>=0)el('hand').querySelector(`[data-select="${selectedHandIndex}"]`)?.focus();return;}const btn=e.target.closest('[data-swap]');if(btn)swapCard(Number(btn.dataset.swap));});el('hand').addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&e.target.matches('.product-card')){e.preventDefault();e.target.click();}});el('closeChance').addEventListener('click',closeChance);// Always begin on the splash screen with a clean, unplayed state.
 state=initialState();selectedHandIndex=-1;render();
-el('startGame').addEventListener('click',()=>{newGame();el('splashScreen').hidden=true;});
+// Guided introduction appears only after Start Game; no game actions run during it.
+let tutorialStep=0;
+function positionTutorial(){
+  const target=tutorialStep===2?document.querySelector(".action-rail"):document.querySelector("#hand .product-fan");
+  const fan=document.querySelector('#hand .product-fan');
+  const callout=el('tutorialCallout');
+  if(!target||callout.hidden)return;
+  const rect=target.getBoundingClientRect();
+  const w=window.innerWidth,h=window.innerHeight;
+  const cw=Math.min(330,w-36);
+  if(tutorialStep===2){
+    // Keep the two spotlighted buttons fully on-screen; place copy below them.
+    callout.style.width=cw+'px';
+    callout.style.left=Math.round((w-cw)/2)+'px';
+    callout.style.top=Math.round(Math.min(h-170,rect.bottom+Math.max(16,Math.min(36,(h-rect.bottom)*.09))))+'px';
+    callout.style.bottom='auto';
+    return;
+  }
+  const beside=w>=1000 && rect.right+cw+34<w;
+  if(beside){
+    callout.style.left=Math.round(rect.right+24)+'px';
+    callout.style.top=Math.round(Math.max(25,Math.min(h-210,rect.top+40)))+'px';
+    callout.style.width=cw+'px';
+  }else{
+    callout.style.left=Math.round((w-cw)/2)+'px';
+    callout.style.width=cw+'px';
+    // Put the instruction at the bottom of the viewport while the fan remains highlighted.
+    callout.style.top='auto';
+    callout.style.bottom='max(18px,env(safe-area-inset-bottom))';
+  }
+  if(beside)callout.style.bottom='auto';
+}
+function showTutorial(){
+  const fan=document.querySelector('#hand .product-fan');
+  if(!fan)return;
+  tutorialStep=1;
+  el('tutorialHeading').textContent='How to play';
+  el('tutorialCallout').querySelector('p:not(.tutorial-continue)').textContent='Click on any card to view it or swap it with another player';
+  fan.scrollIntoView({block:'center',behavior:'instant'});
+  el('tutorialShade').hidden=false;
+  el('tutorialCallout').hidden=false;
+  fan.classList.add('tutorial-highlight');
+  positionTutorial();
+  el('tutorialCallout').setAttribute('tabindex','-1');
+  el('tutorialCallout').focus();
+}
+function advanceTutorial(){
+  if(tutorialStep===1){
+    tutorialStep=2;
+    document.querySelector('#hand .product-fan')?.classList.remove('tutorial-highlight');
+    const rail=document.querySelector('.action-rail');
+    rail?.classList.add('tutorial-highlight');
+    el('tutorialHeading').textContent='One more thing';
+    el('tutorialCallout').querySelector('p:not(.tutorial-continue)').textContent="If you can't or don't want to swap, you have to click one of these buttons.";
+    positionTutorial();
+  }else closeTutorial();
+}
+function closeTutorial(){
+  tutorialStep=0;
+  document.querySelector('.action-rail')?.classList.remove('tutorial-highlight');
+  el('tutorialShade').hidden=true;
+  el('tutorialCallout').hidden=true;
+  document.querySelector('#hand .product-fan')?.classList.remove('tutorial-highlight');
+}
+// During the tutorial, the first click anywhere dismisses the overlay only.
+// Capture-phase interception prevents that click from also flipping a card or taking a turn.
+document.addEventListener('click',function(e){
+  if(el('tutorialShade').hidden)return;
+  e.preventDefault();
+  e.stopImmediatePropagation();
+  advanceTutorial();
+},true);
+document.addEventListener('keydown',function(e){
+  if(el('tutorialShade').hidden)return;
+  if(e.key==='Enter'||e.key===' '||e.key==='Escape'){
+    e.preventDefault();e.stopImmediatePropagation();advanceTutorial();
+  }
+},true);
+window.addEventListener('resize',positionTutorial);
+el('startGame').addEventListener('click',()=>{newGame();el('splashScreen').hidden=true;showTutorial();});
 </script>
 <script>
 /* Decorative Rough.js SVG frames: no impact on game state or button interaction. */
 (function(){
-  var selector='.panel,.tile,.hand-select,.hand-detail,.total,.last-play,button,.tag';
+  var selector='.panel,.tile,.hand-select,.hand-detail,.total,button:not(.product-card):not(.card-swap-circle):not(.rail-circle),.tag';
   var pending=false;
   var placements=new WeakMap();
   function jitter(el){
@@ -1049,7 +1363,7 @@ el('startGame').addEventListener('click',()=>{newGame();el('splashScreen').hidde
     el.style.setProperty('--jitter-angle',p.a.toFixed(2)+'deg');
   }
   function liftButtonText(el){
-    if(!el.matches('button'))return;
+    if(!el.matches('button:not(.product-card)'))return;
     // Bare text nodes cannot be given a z-index. Wrap them without changing
     // the button itself, its listeners, its accessibility label or its action.
     Array.from(el.childNodes).forEach(function(node){
@@ -1062,7 +1376,7 @@ el('startGame').addEventListener('click',()=>{newGame();el('splashScreen').hidde
     });
   }
   function frame(el){
-    if(!window.rough || !rough.svg || !el.isConnected || el.offsetWidth<8 || el.offsetHeight<8)return;
+    if(el.classList.contains('product-card') || el.classList.contains('card-swap-circle') || !window.rough || !rough.svg || !el.isConnected || el.offsetWidth<8 || el.offsetHeight<8)return;
     liftButtonText(el);
     var old=el.querySelector(':scope > svg.rough-outline');
     if(old)old.remove();
@@ -1101,6 +1415,25 @@ el('startGame').addEventListener('click',()=>{newGame();el('splashScreen').hidde
     var isPopup=el.matches('.popup');
     // Dense hatch strokes make the selected and action buttons visually distinctive.
     var hatchGap=(selected||isDark)?4.3:el.matches('.tile')?7:6;
+    if(el.id==='drawChance'){
+      // Opaque cream disk keeps the action readable against the dimmed tutorial and page.
+      svg.appendChild(r.ellipse(w/2,h/2,Math.max(1,w-8),Math.max(1,h-8),{
+        stroke:'#52724D',strokeWidth:4.2,roughness:1.15,bowing:1.1,
+        seed:seed,fill:'#FFF7DA',fillStyle:'solid'
+      }));
+      el.appendChild(svg);
+      return;
+    }
+    if(el.id==='startGame'){
+      // Circular Rough.js outline and light sage hatching, like Don't swap.
+      svg.appendChild(r.ellipse(w/2,h/2,Math.max(1,w-8),Math.max(1,h-8),{
+        stroke:'#52724D',strokeWidth:4.2,roughness:1.15,bowing:1.1,
+        seed:seed,fill:lightenHatch('#82977A'),fillStyle:'hachure',
+        hachureAngle:-42,hachureGap:4.3,fillWeight:1.4
+      }));
+      el.appendChild(svg);
+      return;
+    }
     svg.appendChild(r.rectangle(inset,inset,Math.max(1,w-2*inset),Math.max(1,h-2*inset),{
       stroke:color,strokeWidth:strokeWidth,roughness:isButton?1.15:1.4,bowing:1.1,
       seed:seed,fill:isPopup?'none':(el.matches('.cash-out-action:not(:disabled)')?'#405B3B':lightenHatch(fillColor)),fillStyle:el.matches('.cash-out-action:not(:disabled)')?'solid':'hachure',hachureAngle:-42,
@@ -1134,21 +1467,90 @@ el('startGame').addEventListener('click',()=>{newGame();el('splashScreen').hidde
       chart.appendChild(svg);chart.classList.add('rough-ready');
     });
   }
+  function drawCardFaces(){
+    document.querySelectorAll('.product-card-face').forEach(function(face){
+      if(face.querySelector(':scope > svg.rough-card-art') || !window.rough || !rough.svg)return;
+      var w=face.clientWidth,h=face.clientHeight;
+      if(w<20||h<20)return;
+      var svg=document.createElementNS('http://www.w3.org/2000/svg','svg');
+      svg.setAttribute('class','rough-card-art');
+      svg.setAttribute('viewBox','0 0 '+w+' '+h);
+      svg.setAttribute('aria-hidden','true');
+      var r=rough.svg(svg),front=face.classList.contains('product-card-front');
+      var card=face.closest('.product-card');
+      var index=card?Number(card.dataset.cardIndex):0;
+      var seed=8101+index*193+(front?0:37);
+      svg.appendChild(r.rectangle(3,3,Math.max(1,w-6),Math.max(1,h-6),{
+        seed:seed,stroke:'#66734e',strokeWidth:1.8,roughness:1.25,bowing:1.0,
+        fill:front?'#e5df83':'#f1f1e8',fillStyle:'hachure',hachureAngle:-43,
+        hachureGap:front?11:17,fillWeight:front?.6:.35
+      }));
+      face.insertBefore(svg,face.firstChild);
+    });
+  }
   function draw(){pending=false;if(!window.rough || !rough.svg)return;
     document.querySelectorAll(selector).forEach(function(el){
       jitter(el);
       if(!el.querySelector(':scope > svg.rough-outline'))frame(el);
     });
     drawMaterialCharts();
+    drawCardFaces();
+    document.querySelectorAll('.card-swap-circle,.rail-circle').forEach(function(btn){
+      if(btn.querySelector(':scope > svg.rough-outline'))return;
+      liftButtonText(btn);
+      var w=btn.clientWidth,h=btn.clientHeight;if(!w||!h)return;
+      var svg=document.createElementNS('http://www.w3.org/2000/svg','svg');
+      svg.setAttribute('class','rough-outline');svg.setAttribute('viewBox','0 0 '+w+' '+h);
+      svg.setAttribute('aria-hidden','true');
+      svg.style.cssText='position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;overflow:visible';
+      var r=rough.svg(svg);
+      var cash=btn.classList.contains('cash-out-action');
+      svg.appendChild(r.circle(w/2,h/2,Math.min(w,h)-7,{seed:cash?7323:7321,stroke:cash?'#6b293b':'#52724d',strokeWidth:4,roughness:1.25,fill:cash?'#74374b':'#c5d5b9',fillStyle:cash?'solid':'hachure',hachureGap:7,fillWeight:.65}));
+      btn.insertBefore(svg,btn.firstChild);
+    });
   }
   function schedule(){if(!pending){pending=true;requestAnimationFrame(draw);}}
   var observer=new MutationObserver(function(records){
-    if(records.some(function(m){return Array.from(m.addedNodes).some(function(n){return n.nodeType===1 && !(n.classList && n.classList.contains('rough-outline')) && !(n.closest && n.closest('.rough-outline'));});}))schedule();
+    if(records.some(function(m){return Array.from(m.addedNodes).some(function(n){return n.nodeType===1 && !(n.classList && (n.classList.contains('rough-outline') || n.classList.contains('rough-card-art'))) && !(n.closest && n.closest('.rough-outline'));});}))schedule();
   });
   observer.observe(document.body,{childList:true,subtree:true});
-  window.addEventListener('resize',function(){document.querySelectorAll('svg.rough-outline,.rough-material-chart svg').forEach(function(el){el.remove();});document.querySelectorAll('.rough-material-chart').forEach(function(el){el.classList.remove('rough-ready');});schedule();});
+  window.addEventListener('resize',function(){document.querySelectorAll('svg.rough-outline,.rough-material-chart svg,.rough-card-art').forEach(function(el){el.remove();});document.querySelectorAll('.rough-material-chart').forEach(function(el){el.classList.remove('rough-ready');});schedule();});
   schedule();
   window.addEventListener('load',schedule);
+})();
+</script>
+
+<style>
+/* V128: visually center the action circles in the actual gap between the card fan and market panel. */
+@media(min-width:1450px){.game-columns>.action-rail{transform:translateX(var(--rail-center-offset,0px))!important}}
+</style>
+<script>
+(function(){
+  const rail=document.querySelector('.game-columns>.action-rail');
+  const market=document.querySelector('.game-columns>.market-region>.panel');
+  const hand=document.getElementById('hand');
+  if(!rail||!market||!hand)return;
+  let pending=false;
+  function align(){
+    pending=false;
+    if(!window.matchMedia('(min-width:1450px)').matches){rail.style.removeProperty('--rail-center-offset');return;}
+    const cards=hand.querySelectorAll('.product-card');
+    const button=rail.querySelector('.rail-circle');
+    if(!cards.length||!button)return;
+    const right=Math.max(...Array.from(cards,c=>c.getBoundingClientRect().right));
+    const left=market.getBoundingClientRect().left;
+    if(left<=right)return;
+    const current=button.getBoundingClientRect();
+    const previous=parseFloat(rail.style.getPropertyValue('--rail-center-offset'))||0;
+    const unshiftedCenter=(current.left+current.right)/2-previous;
+    const offset=(right+left)/2-unshiftedCenter;
+    rail.style.setProperty('--rail-center-offset',offset.toFixed(2)+'px');
+  }
+  function schedule(){if(!pending){pending=true;requestAnimationFrame(align)}}
+  new MutationObserver(schedule).observe(hand,{childList:true});
+  window.addEventListener('resize',schedule);
+  window.addEventListener('load',schedule);
+  schedule();
 })();
 </script>
 </body></html>
